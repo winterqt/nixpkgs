@@ -17,12 +17,10 @@ jobs:
       contents: write  # for zeebe-io/backport-action to create branch
       pull-requests: write  # for zeebe-io/backport-action to create PR to backport
     name: Backport Pull Request
-    if: github.repository_owner == 'NixOS' && github.event.pull_request.merged == true && (github.event_name != 'labeled' || startsWith('backport', github.event.label.name))
+    if: github.repository_owner == 'winterqt' && github.event.pull_request.merged == true && (github.event_name != 'labeled' || startsWith('backport', github.event.label.name))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
       - name: Create backport PRs
         uses: zeebe-io/backport-action@v0.0.8
         with:
