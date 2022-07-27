@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Create backport PRs
-        uses: winterqt/backport-action@3a4016a5f5452a1fdd64e2509bb24ef9c3d2427f
+        uses: winterqt/backport-action@01a8dc2c1dfe11ed54c31f8c273703c9b8cc446e
         with:
           # Config README: https://github.com/zeebe-io/backport-action#backport-action
           github_token: ${{ secrets.GITHUB_TOKEN }}
