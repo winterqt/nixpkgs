@@ -14556,8 +14556,8 @@ with pkgs;
     inherit (darwin) apple_sdk;
   };
 
-  rust_1_63 = callPackage ../development/compilers/rust/1_63.nix {
-    inherit (darwin.apple_sdk.frameworks) CoreFoundation Security SystemConfiguration;
+  rust_1_63 = darwin.apple_sdk_11_0.callPackage ../development/compilers/rust/1_63.nix {
+    inherit (darwin.apple_sdk_11_0.frameworks) CoreFoundation Security SystemConfiguration;
     llvm_14 = llvmPackages_14.libllvm;
   };
   rust = rust_1_63;
