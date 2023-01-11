@@ -1,10 +1,12 @@
 { lib
+, stdenv
 , buildPythonPackage
 , fetchFromGitHub
 , pytestCheckHook
 , pythonOlder
 , rustPlatform
 , setuptools-rust
+, darwin
 }:
 
 buildPythonPackage rec {
@@ -27,6 +29,8 @@ buildPythonPackage rec {
     cargoSetupHook
     maturinBuildHook
   ]);
+
+  buildInputs = lib.optionals stdenv.isDarwin [ darwin.apple_sdk.frameworks.Security ];
 
   cargoDeps = rustPlatform.fetchCargoTarball {
     inherit src;
