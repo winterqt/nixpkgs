@@ -1,18 +1,25 @@
 #![warn(clippy::pedantic)]
 
-use crate::cacache::Cache;
-use anyhow::anyhow;
+use crate::cacache::{Cache, Key};
+use anyhow::{anyhow, bail};
 use rayon::prelude::*;
 use serde_json::{Map, Value};
 use std::{
+    collections::HashMap,
     env, fs,
-    path::Path,
+    path::{Path, PathBuf},
     process::{self, Command},
 };
 use tempfile::tempdir;
+use url::Url;
+use walkdir::WalkDir;
 
 mod cacache;
 mod parse;
+
+fn map_path() -> PathBuf {
+    PathBuf::from(env::var_os("CACHE_MAP_PATH_MEOW").unwrap())
+}
 
 /// `fixup_lockfile` removes the `integrity` field from Git dependencies.
 ///
@@ -21,36 +28,60 @@ mod parse;
 /// tarball into the lockfile.
 ///
 /// Thus, we remove this hash, to replace it with our own determinstic copies of dependencies from hosted Git providers.
-fn fixup_lockfile(mut lock: Map<String, Value>) -> anyhow::Result<Option<Map<String, Value>>> {
-    if lock
+fn fixup_lockfile(
+    mut lock: Map<String, Value>,
+    cache: &HashMap<String, String>,
+) -> anyhow::Result<Option<Map<String, Value>>> {
+    let mut fixed = false;
+
+    match lock
         .get("lockfileVersion")
         .ok_or_else(|| anyhow!("couldn't get lockfile version"))?
         .as_i64()
         .ok_or_else(|| anyhow!("lockfile version isn't an int"))?
-        < 2
     {
-        return Ok(None);
-    }
+        1 => fixup_v1_deps(
+            lock.get_mut("dependencies")
+                .unwrap()
+                .as_object_mut()
+                .unwrap(),
+            cache,
+            &mut fixed,
+        ),
+        2 | 3 => {
+            for package in lock
+                .get_mut("packages")
+                .ok_or_else(|| anyhow!("couldn't get packages"))?
+                .as_object_mut()
+                .ok_or_else(|| anyhow!("packages isn't a map"))?
+                .values_mut()
+            {
+                if let Some(Value::String(resolved)) = package.get("resolved") {
+                    if let Some(Value::String(integrity)) = package.get("integrity") {
+                        if resolved.starts_with("git+ssh://") {
+                            fixed = true;
 
-    let mut fixed = false;
+                            package
+                                .as_object_mut()
+                                .ok_or_else(|| anyhow!("package isn't a map"))?
+                                .remove("integrity");
+                        } else {
+                            let cache_hash =
+                                cache.get(resolved).expect("dependency should have a hash");
 
-    for package in lock
-        .get_mut("packages")
-        .ok_or_else(|| anyhow!("couldn't get packages"))?
-        .as_object_mut()
-        .ok_or_else(|| anyhow!("packages isn't a map"))?
-        .values_mut()
-    {
-        if let Some(Value::String(resolved)) = package.get("resolved") {
-            if resolved.starts_with("git+ssh://") && package.get("integrity").is_some() {
-                fixed = true;
-
-                package
-                    .as_object_mut()
-                    .ok_or_else(|| anyhow!("package isn't a map"))?
-                    .remove("integrity");
+                            if integrity != cache_hash {
+                                *package
+                                    .as_object_mut()
+                                    .ok_or_else(|| anyhow!("package isn't a map"))?
+                                    .get_mut("integrity")
+                                    .unwrap() = Value::String(cache_hash.clone());
+                            }
+                        }
+                    }
+                }
             }
         }
+        v => bail!("unsupported lockfile version {v}"),
     }
 
     if fixed {
@@ -60,6 +91,65 @@ fn fixup_lockfile(mut lock: Map<String, Value>) -> anyhow::Result<Option<Map<Str
     } else {
         Ok(None)
     }
+}
+
+// yes, we need a separate function for v1... yay, recursion...
+// please someone just end my suffering, i hate this ecosystem.
+fn fixup_v1_deps(
+    dependencies: &mut serde_json::Map<String, Value>,
+    cache_hashes: &HashMap<String, String>,
+    fixed: &mut bool,
+) {
+    for dep in dependencies.values_mut() {
+        if let Some(Value::String(resolved)) = dep
+            .as_object()
+            .expect("v1 dep must be object")
+            .get("resolved")
+        {
+            if let Some(Value::String(integrity)) = dep
+                .as_object()
+                .expect("v1 dep must be object")
+                .get("integrity")
+            {
+                let cache_hash = cache_hashes
+                    .get(resolved)
+                    .expect("dependency should have a hash");
+
+                if integrity != cache_hash {
+                    *fixed = true;
+
+                    *dep.as_object_mut()
+                        .expect("v1 dep must be object")
+                        .get_mut("integrity")
+                        .unwrap() = Value::String(cache_hash.clone());
+                }
+            }
+        }
+
+        if let Some(Value::Object(more_deps)) = dep.as_object_mut().unwrap().get_mut("dependencies")
+        {
+            fixup_v1_deps(more_deps, cache_hashes, fixed);
+        }
+    }
+}
+
+fn map_cache() -> anyhow::Result<HashMap<Url, String>> {
+    let mut hashes = HashMap::new();
+
+    let content_path = Path::new(&env::var_os("npmDeps").unwrap()).join("_cacache/index-v5");
+
+    for entry in WalkDir::new(content_path) {
+        let entry = entry?;
+
+        if entry.file_type().is_file() {
+            let content = fs::read_to_string(entry.path())?;
+            let key: Key = serde_json::from_str(content.split_ascii_whitespace().nth(1).unwrap())?;
+
+            hashes.insert(key.metadata.url, key.integrity);
+        }
+    }
+
+    Ok(hashes)
 }
 
 fn main() -> anyhow::Result<()> {
@@ -76,11 +166,18 @@ fn main() -> anyhow::Result<()> {
     if args[1] == "--fixup-lockfile" {
         let lock = serde_json::from_str(&fs::read_to_string(&args[2])?)?;
 
-        if let Some(fixed) = fixup_lockfile(lock)? {
+        if let Some(fixed) = fixup_lockfile(lock, &serde_json::from_slice(&fs::read(map_path())?)?)?
+        {
             println!("Fixing lockfile");
 
             fs::write(&args[2], serde_json::to_string(&fixed)?)?;
         }
+
+        return Ok(());
+    } else if args[1] == "--map-cache" {
+        let map = map_cache()?;
+
+        fs::write(map_path(), serde_json::to_string(&map)?)?;
 
         return Ok(());
     }
@@ -133,6 +230,8 @@ fn main() -> anyhow::Result<()> {
 
 #[cfg(test)]
 mod tests {
+    use std::collections::HashMap;
+
     use super::fixup_lockfile;
     use serde_json::json;
 
@@ -147,12 +246,20 @@ mod tests {
                 },
                 "foo": {
                     "resolved": "https://github.com/NixOS/nixpkgs",
-                    "integrity": "aaa"
+                    "integrity": "sha1-aaa"
                 },
                 "bar": {
                     "resolved": "git+ssh://git@github.com/NixOS/nixpkgs.git",
-                    "integrity": "bbb"
-                }
+                    "integrity": "sha512-aaa"
+                },
+                "foo-bad": {
+                    "resolved": "foo",
+                    "integrity": "sha1-foo"
+                },
+                "foo-good": {
+                    "resolved": "foo",
+                    "integrity": "sha512-foo"
+                },
             }
         });
 
@@ -165,23 +272,42 @@ mod tests {
                 },
                 "foo": {
                     "resolved": "https://github.com/NixOS/nixpkgs",
-                    "integrity": "aaa"
+                    "integrity": ""
                 },
                 "bar": {
                     "resolved": "git+ssh://git@github.com/NixOS/nixpkgs.git",
-                }
+                },
+                "foo-bad": {
+                    "resolved": "foo",
+                    "integrity": "sha512-foo"
+                },
+                "foo-good": {
+                    "resolved": "foo",
+                    "integrity": "sha512-foo"
+                },
             }
         });
 
+        let mut hashes = HashMap::new();
+
+        hashes.insert(
+            String::from("https://github.com/NixOS/nixpkgs"),
+            String::new(),
+        );
+
+        hashes.insert(
+            String::from("git+ssh://git@github.com/NixOS/nixpkgs.git"),
+            String::new(),
+        );
+
+        hashes.insert(String::from("foo"), String::from("sha512-foo"));
+
         assert_eq!(
-            fixup_lockfile(input.as_object().unwrap().clone())?,
+            fixup_lockfile(input.as_object().unwrap().clone(), &hashes)?,
             Some(expected.as_object().unwrap().clone())
         );
 
-        assert_eq!(
-            fixup_lockfile(json!({"lockfileVersion": 1}).as_object().unwrap().clone())?,
-            None
-        );
+        // TODO: v1 test
 
         Ok(())
     }
