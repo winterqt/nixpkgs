@@ -20,7 +20,7 @@ rustPlatform.buildRustPackage.override { inherit stdenv; } rec {
       --replace "linker = \"aarch64-linux-gnu-gcc\"" ""
   '';
 
-  cargoHash = "sha256-6uhtOaBsgMw59Dy6yivZYUEWDsYfpInA7VmJrqxDS/4=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = [ autoreconfHook cargo cxx-rs hexdump makeWrapper pkg-config ];
 

@@ -13,7 +13,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-GEYP18CaCQShvCg8T7YTvlybH1LNO34KBxgmsTv2Lzs=";
   };
 
-  cargoSha256 = "sha256-I6d3IyPBcUsrvlzF7W0hFM4hcXi4wWro9bCeP4eArHI=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = [ pkg-config llvmPackages.libclang clang ];
   buildInputs = [ openssl libsodium xz ]

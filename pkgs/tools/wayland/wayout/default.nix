@@ -15,7 +15,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-EzRetxx0NojhBlBPwhQ7p9rGXDUBlocVqxcEVGIF3+0=";
   };
 
-  cargoSha256 = "sha256-QlxXbfeWJdCythYRRLSpJbTzKkwrL4kmAfyL3tRt194=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Simple output management tool for wlroots based compositors implementing";

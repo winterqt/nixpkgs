@@ -20,7 +20,7 @@ rustPlatform.buildRustPackage rec {
     Security
   ];
 
-  cargoSha256 = "sha256-qfJ0ROi0S0mmPl6kKrW3dp3VLjYqK+sBVj+iKDNTjyM=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Rust adapter for Buildkite Test Analytics";

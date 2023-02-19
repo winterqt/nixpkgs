@@ -50,7 +50,39 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-wKYU5S77VoOX7UA9/d21Puz9NYs/om08eNM69/m3Orc=";
   };
 
-  cargoHash = "sha256-GTkn/fUprkpsDeQxtzdmS7Fub9QODO5/4nh9ERswOY0=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "criterion-0.3.5" = "sha256-gXhwLw99kC08zxHdY6l5LF5EVzAAFasI4GLnopLwhEU=";
+      "criterion-plot-0.4.4" = "sha256-gXhwLw99kC08zxHdY6l5LF5EVzAAFasI4GLnopLwhEU=";
+      "differential-dataflow-0.12.0" = "sha256-sDy4502XqCuXqRtwLWuaHSgfX7v9NNochhfpI6n8DrM=";
+      "dogsdogsdogs-0.1.0" = "sha256-sDy4502XqCuXqRtwLWuaHSgfX7v9NNochhfpI6n8DrM=";
+      "headers-0.3.5" = "sha256-ipxMfuPgoeH2uR4Im/XBdnxT00+LGzTgW7Ed2armYOU=";
+      "headers-core-0.2.0" = "sha256-ipxMfuPgoeH2uR4Im/XBdnxT00+LGzTgW7Ed2armYOU=";
+      "mzcloud-1.0.0" = "sha256-Nt9YCG+DFCCOMbKaNhOD78WF/z3qB5ymUIp6Wep2A9A=";
+      "parquet-format-async-temp-0.2.0" = "sha256-UUQv/90egmwQK0CZCztinEskvWcZ40rKWbJoWYz2oLQ=";
+      "postgres-0.19.1" = "sha256-zH7PF4p7wJCSYpuydTL3HPcOjPU9SlTy6IJREOe2l7U=";
+      "postgres-openssl-0.5.0" = "sha256-zH7PF4p7wJCSYpuydTL3HPcOjPU9SlTy6IJREOe2l7U=";
+      "postgres-protocol-0.6.1" = "sha256-zH7PF4p7wJCSYpuydTL3HPcOjPU9SlTy6IJREOe2l7U=";
+      "postgres-types-0.2.1" = "sha256-zH7PF4p7wJCSYpuydTL3HPcOjPU9SlTy6IJREOe2l7U=";
+      "postgres_array-0.11.0" = "sha256-M1nMsQfxK0ay4JxoPqm2cl4Cp8mVZlVUAfWDhhv9nA4=";
+      "prometheus-0.10.0" = "sha256-NTnKt1RGiZ8AxsU8UzhLhpfEi24Pos5kR9g22Mmt444=";
+      "protobuf-3.0.0-alpha.2" = "sha256-eVb4R/sDT2zOw7plYcDyjFdB8haNbP+1K/Qr6rcduWY=";
+      "protobuf-codegen-3.0.0-alpha.2" = "sha256-eVb4R/sDT2zOw7plYcDyjFdB8haNbP+1K/Qr6rcduWY=";
+      "protobuf-parse-3.0.0-alpha.2" = "sha256-eVb4R/sDT2zOw7plYcDyjFdB8haNbP+1K/Qr6rcduWY=";
+      "protoc-3.0.0-alpha.2" = "sha256-eVb4R/sDT2zOw7plYcDyjFdB8haNbP+1K/Qr6rcduWY=";
+      "pubnub-core-0.1.0" = "sha256-YuGEFaStfrhb0ygjVFm2a2eJla9ABc5ifXKuvJxUvgk=";
+      "pubnub-hyper-0.1.0" = "sha256-YuGEFaStfrhb0ygjVFm2a2eJla9ABc5ifXKuvJxUvgk=";
+      "pubnub-util-0.1.0" = "sha256-YuGEFaStfrhb0ygjVFm2a2eJla9ABc5ifXKuvJxUvgk=";
+      "rdkafka-0.28.0" = "sha256-qcDgPeb+KyCvUCc9jXFGkat1x7pVpdqfy/ZYJyuIcuc=";
+      "rdkafka-sys-4.2.0+1.8.2" = "sha256-qcDgPeb+KyCvUCc9jXFGkat1x7pVpdqfy/ZYJyuIcuc=";
+      "timely-0.12.0" = "sha256-PHaDRNm7MezXJWhILWJHTeiCWO3iLUp94Z0V2dreCMk=";
+      "timely_bytes-0.12.0" = "sha256-PHaDRNm7MezXJWhILWJHTeiCWO3iLUp94Z0V2dreCMk=";
+      "timely_communication-0.12.0" = "sha256-PHaDRNm7MezXJWhILWJHTeiCWO3iLUp94Z0V2dreCMk=";
+      "timely_logging-0.12.0" = "sha256-PHaDRNm7MezXJWhILWJHTeiCWO3iLUp94Z0V2dreCMk=";
+      "tokio-postgres-0.7.2" = "sha256-zH7PF4p7wJCSYpuydTL3HPcOjPU9SlTy6IJREOe2l7U=";
+    };
+  };
 
   nativeBuildInputs = [ cmake perl pkg-config ]
     # Provides the mig command used by the krb5-src build script

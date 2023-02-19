@@ -9,7 +9,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-rs/qv6zmSHy2FFiPSgGzxAV/r0SqK9vnfwnLj45WY4I=";
   };
 
-  cargoSha256 = "sha256-WDvflAb56l+UkrxeQQZrloxlaK/mZavT9sA+VOWDW5Q=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # setid is not allowed in the sandbox
   checkFlags = [ "--skip=tests::style_for_setid" ];

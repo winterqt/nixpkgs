@@ -23,7 +23,7 @@ rustPlatform.buildRustPackage rec {
 
   buildInputs = lib.optionals stdenv.isDarwin [ DiskArbitration Foundation Security ];
 
-  cargoSha256 = "sha256-T88C5oYyVfepUw0cdNRhEwrvEI0t1gw/5qZL1E46pkY=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   doCheck = false;
 

@@ -26,7 +26,7 @@ rustPlatform.buildRustPackage rec {
   buildInputs = [ openssl xorg.xcbutil ]
     ++ lib.optional stdenv.isDarwin AppKit;
 
-  cargoSha256 = "sha256-LWGoWFPZsTYa1hQnv1eNNmCKZsiLredvD6+kWanVEK0=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "A simple and fast dashboard for Kubernetes";

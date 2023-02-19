@@ -14,7 +14,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-v1fXEC+bV561cewH17x+1anhfXstGBOHG5rHvhYIvLo=";
   };
 
-  cargoSha256 = "sha256-krQTa9R3hmMVKLoBgnbCw+aSQu9HUXfA3XflB8AZv6w=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # fix for compilation on aarch64
   # see https://github.com/NixOS/nixpkgs/issues/145726

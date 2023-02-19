@@ -13,7 +13,7 @@ rustPlatform.buildRustPackage rec {
     inherit version pname;
     sha256 = "sha256-0sjJIHD+x9P7FPLNwTXYcetbU4Ck5K4pFGF5cMI3+rk=";
   };
-  cargoSha256 = "sha256-vjDV604HDwlaxwq5iQbGOKXmLTRgx1oZ824HXBSiouw=";
+  cargoLock.lockFile = ./Cargo.lock;
   buildFeatures = [ "cli" ];
 
   doCheck = true;

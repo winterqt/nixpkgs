@@ -13,7 +13,7 @@ rustPlatform.buildRustPackage rec {
 
   sourceRoot = "source/example/unpfs";
 
-  cargoSha256 = "sha256-v8hbxKuxux0oYglEIK5dM9q0oBQzjyYDP1JB1cYR/T0=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   RUSTC_BOOTSTRAP = 1;
 

@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-k3HRaWN8/MTZRGWBxI8RRK0tcSYBbSLs3vHkUdLGTc8";
   };
 
-  cargoSha256 = "sha256-wfUr3dcdALMEgJ6CaXhK4Gqk6xflCnov9tELA63drV4=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   preFixup = ''
     installManPage $releaseDir/build/nux-*/out/nux.1

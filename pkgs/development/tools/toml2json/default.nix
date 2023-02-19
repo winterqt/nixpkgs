@@ -9,7 +9,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-TxTxKHf5g+mBXDq147T5tuwCqyfyoz6Mj55g1tlgRDY=";
   };
 
-  cargoHash = "sha256-EYp30TMIpzSCkPIqqdc7sGpfaWs9OLi9ey7DoPE4jzI=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "A very small CLI for converting TOML to JSON";

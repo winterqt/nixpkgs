@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-4q+7F8s6y+oDkBUKIBBsXZ2EtADcChdnjmABjBUnH9k=";
   };
 
-  cargoSha256 = "sha256-nfs9sUq9569qXsC7JYMzrRPdQQm/l4HZANlG7827K8o=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   postPatch = ''
     substituteInPlace data/supergfxd.service --replace /usr/bin/supergfxd $out/bin/supergfxd

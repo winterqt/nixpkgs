@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-83ff0T2P5aRQ6cM9z7IEuoi7syvJldIuzzdiTrygckA=";
   };
 
-  cargoSha256 = "sha256-W1tLQTTMOKB/BR9P3y3goPIdOe12Qdkf4wYPlhbQjzY=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "A generator for LS_COLORS with support for multiple color themes";

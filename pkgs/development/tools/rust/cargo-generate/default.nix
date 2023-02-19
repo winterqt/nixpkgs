@@ -23,7 +23,7 @@ rustPlatform.buildRustPackage rec {
   # patch Cargo.toml to not vendor libgit2 and openssl
   cargoPatches = [ ./no-vendor.patch ];
 
-  cargoSha256 = "sha256-wbovccAWeAPa8xbVhM2TGiLcqQYGBvGnS5/05672QKU=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = [ pkg-config ];
 

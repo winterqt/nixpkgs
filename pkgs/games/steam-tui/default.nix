@@ -19,7 +19,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-UTXYlPecv0MVonr9zZwfwopfC/Fdch/ZSCxqgUsem40=";
   };
 
-  cargoSha256 = "sha256-VYBzwDLSV4N4qt2dNgIS399T2HIbPTdQ2rDIeheLlfo=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   buildInputs = [ steamcmd ]
     ++ lib.optional withWine wine;

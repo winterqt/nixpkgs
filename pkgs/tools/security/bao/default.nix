@@ -14,7 +14,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "SkplBzor7Fv2+6K8wcTtZwjR66RfLPA/YNNUUHniWpM=";
   };
 
-  cargoSha256 = "yr4HvtOWnU2dFTBgSsbVcuDELe1o1SEtZ7rN/ctKAdI=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = {
     description = "An implementation of BLAKE3 verified streaming";

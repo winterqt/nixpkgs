@@ -24,7 +24,24 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-ZKhHN0ruLb6ZVKkrKv/YawRsVop6SP1QF/nrtkmA8P8=";
   };
 
-  cargoSha256 = "sha256-TDxoRWQAzrgPElEEDNYkk3XX2i+LnNLMuY/J3pb3Xlk=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "cubeb-0.10.1" = "sha256-7y43N7LXw3OpYSh2B+Lh3iPHXxmDxmvzquOs94S5G5s=";
+      "cubeb-core-0.10.1" = "sha256-7y43N7LXw3OpYSh2B+Lh3iPHXxmDxmvzquOs94S5G5s=";
+      "cubeb-sys-0.10.1" = "sha256-7y43N7LXw3OpYSh2B+Lh3iPHXxmDxmvzquOs94S5G5s=";
+      "druid-0.7.0" = "sha256-fnsm+KGsuePLRRjTecJ0GBQEySSeDIth13AX/aAigqU=";
+      "druid-derive-0.4.0" = "sha256-fnsm+KGsuePLRRjTecJ0GBQEySSeDIth13AX/aAigqU=";
+      "druid-enums-0.1.0" = "sha256-4fo0ywoK+m4OuqYlbNbJS2BZK/VBFqeAYEFNGnGUVmM=";
+      "druid-shell-0.7.0" = "sha256-fnsm+KGsuePLRRjTecJ0GBQEySSeDIth13AX/aAigqU=";
+      "piet-0.5.0" = "sha256-u+3UCSZQDkftHCN7AW0mUROY/yVTgPOcrF+b3Si/2BQ=";
+      "piet-cairo-0.5.0" = "sha256-u+3UCSZQDkftHCN7AW0mUROY/yVTgPOcrF+b3Si/2BQ=";
+      "piet-common-0.5.0" = "sha256-u+3UCSZQDkftHCN7AW0mUROY/yVTgPOcrF+b3Si/2BQ=";
+      "piet-coregraphics-0.5.0" = "sha256-u+3UCSZQDkftHCN7AW0mUROY/yVTgPOcrF+b3Si/2BQ=";
+      "piet-direct2d-0.5.0" = "sha256-u+3UCSZQDkftHCN7AW0mUROY/yVTgPOcrF+b3Si/2BQ=";
+      "piet-web-0.5.0" = "sha256-u+3UCSZQDkftHCN7AW0mUROY/yVTgPOcrF+b3Si/2BQ=";
+    };
+  };
   # specify the subdirectory of the binary crate to build from the workspace
   buildAndTestSubdir = "psst-gui";
 

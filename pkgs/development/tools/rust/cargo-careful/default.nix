@@ -14,7 +14,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-kKF/Fp6RCF9PUdgqeo2e4vLVhl8+5M4oa0Q18ZdXJRc=";
   };
 
-  cargoHash = "sha256-rhTi4rHfU+ZgNAMXSX7r5k3NfMUPNjHIUDs6FzeqcWk=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "A tool to execute Rust code carefully, with extra checking along the way";

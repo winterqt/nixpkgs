@@ -26,7 +26,21 @@ rustPlatform.buildRustPackage rec {
   # Use system openssl.
   OPENSSL_NO_VENDOR = 1;
 
-  cargoSha256 = "sha256-PiDW7+LrCDfRpQirJlgaYDnGenowbsCmwQz1mbgA08E=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "barrel-0.6.6-alpha.0" = "sha256-USh0lQ1z+3Spgc69bRFySUzhuY79qprLlEExTmYWFN8=";
+      "graphql-parser-0.3.0" = "sha256-0ZAsj2mW6fCLhwTETucjbu4rPNzfbNiHu2wVTBlTNe4=";
+      "mobc-0.7.3" = "sha256-Ts2VVAuZakS+Sy/rEUrCe7RJX5MWs/TTO60c7mH+5sU=";
+      "mysql_async-0.30.0" = "sha256-I1Q9G3H3BW/Paq9aOYGcxQf4JVwN/ZNhGuHwTqbuxWc=";
+      "postgres-native-tls-0.5.0" = "sha256-kwqHalfwrvNQYUdAqObTAab3oWzBLl6hab2JGXVyJ3k=";
+      "postgres-protocol-0.6.4" = "sha256-kwqHalfwrvNQYUdAqObTAab3oWzBLl6hab2JGXVyJ3k=";
+      "postgres-types-0.2.4" = "sha256-kwqHalfwrvNQYUdAqObTAab3oWzBLl6hab2JGXVyJ3k=";
+      "quaint-0.2.0-alpha.13" = "sha256-mScy0+tx4WrslWSrA5E38vBJ0mTCRo6QzEB9h+ARMNQ=";
+      "tokio-native-tls-0.3.0" = "sha256-ayH3TJ1iUQeZicR2nrsuxLykMoPL1fYBqRb21ValR5Q=";
+      "tokio-postgres-0.7.7" = "sha256-kwqHalfwrvNQYUdAqObTAab3oWzBLl6hab2JGXVyJ3k=";
+    };
+  };
 
   nativeBuildInputs = [ pkg-config git ];
 

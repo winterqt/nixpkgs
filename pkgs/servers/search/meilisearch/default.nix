@@ -21,7 +21,21 @@ rustPlatform.buildRustPackage {
     hash = "sha256-XWPJldWxe8iply7XtmDem1gfbNuuaWuFdMfuCbcU6tc=";
   };
 
-  cargoHash = "sha256-v8P4pbTJ/t9TgB07tyhn3y8q65xILFTbBgziw5kuxUQ=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "actix-web-static-files-3.0.5" = "sha256-2BN0RzLhdykvN3ceRLkaKwSZtel2DBqZ+uz4Qut+nII=";
+      "filter-parser-0.41.1" = "sha256-CEGDqqxQUa5FcQezfF+3HsJ2FrofDLy6Ud66yknQaoA=";
+      "flatten-serde-json-0.41.1" = "sha256-CEGDqqxQUa5FcQezfF+3HsJ2FrofDLy6Ud66yknQaoA=";
+      "heed-0.12.4" = "sha256-kKwpr5zuTKUkl12J8KgXrlQiK4ee+D5xNq0DF1yWGsQ=";
+      "heed-traits-0.7.0" = "sha256-kKwpr5zuTKUkl12J8KgXrlQiK4ee+D5xNq0DF1yWGsQ=";
+      "heed-types-0.7.2" = "sha256-kKwpr5zuTKUkl12J8KgXrlQiK4ee+D5xNq0DF1yWGsQ=";
+      "json-depth-checker-0.41.1" = "sha256-CEGDqqxQUa5FcQezfF+3HsJ2FrofDLy6Ud66yknQaoA=";
+      "lmdb-rkv-sys-0.15.1" = "sha256-qT8b4F4bgH6mVhXzwbpv2IBgeHS2U1lr7n5t4gpwGIg=";
+      "milli-0.41.1" = "sha256-CEGDqqxQUa5FcQezfF+3HsJ2FrofDLy6Ud66yknQaoA=";
+      "nelson-0.1.0" = "sha256-eF672quU576wmZSisk7oDR7QiDafuKlSg0BTQkXnzqY=";
+    };
+  };
 
   # Default features include mini dashboard which downloads something from the internet.
   buildNoDefaultFeatures = true;

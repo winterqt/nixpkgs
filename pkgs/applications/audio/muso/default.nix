@@ -26,7 +26,7 @@ rustPlatform.buildRustPackage rec {
     cp share/* $out/share/muso/
   '';
 
-  cargoSha256 = "1hgdzyz005244f2mh97js9ga0a6s2hcd6iydz07f1hmhsh1j2bwy";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     broken = (stdenv.isLinux && stdenv.isAarch64) || stdenv.isDarwin;

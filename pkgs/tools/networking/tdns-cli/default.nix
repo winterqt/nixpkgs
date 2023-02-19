@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-BGxkqlKg81izq4eOBEZFJ/MPb3UCSOo8ZTYTjtjierk=";
   };
 
-  cargoHash = "sha256-uRny+l/LaQPjF5AnbxgKFLdjuAxcez1BqsL4g54KAwU=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "DNS tool that aims to replace dig and nsupdate";

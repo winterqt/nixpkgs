@@ -14,7 +14,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-nPkUGUcekZ2fvQgiVTNvt8vfQsNMyqsrkT2zqEfu/bE=";
   };
 
-  cargoSha256 = "sha256-EaZTpKFZPfDlP/2XylhJHznvlah7VNw4snrKDmT7ecw=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   buildInputs = lib.optionals (stdenv.isDarwin && stdenv.isAarch64) [
     darwin.apple_sdk.frameworks.IOKit

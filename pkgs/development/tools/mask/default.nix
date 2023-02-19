@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-mPnykI3scTBzGjDa8nawWYRvZBkq74/t5WMbMbs3zVE=";
   };
 
-  cargoSha256 = "sha256-h58MA3F4UA4gp64UPnK6Tvlvr4PFvrVKmjp48lZjH68=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # tests require mask to be installed
   doCheck = false;

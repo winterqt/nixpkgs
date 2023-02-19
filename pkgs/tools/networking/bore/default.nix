@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "1fdnnx7d18gj4rkv1dc6q379dqabl66zks9i0rjarjwcci8m30d9";
   };
 
-  cargoSha256 = "1xlbfzmy0wjyz3jpr17r4ma4i79d9b32yqwwi10vrcjzr7vsyhmx";
+  cargoLock.lockFile = ./Cargo.lock;
   cargoBuildFlags = [ "-p" pname ];
 
   # FIXME can’t test --all-targets and --doc in a single invocation

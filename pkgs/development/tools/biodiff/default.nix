@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-IrIRBozW2nNqt3/643jQ9sHT/YIpYhWeG749bTR4+60=";
   };
 
-  cargoHash = "sha256-EkvZk5l2Jw/6Ejrz4gYFWz9IZLjz0Op/1z3BGBV07dA=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Hex diff viewer using alignment algorithms from biology";

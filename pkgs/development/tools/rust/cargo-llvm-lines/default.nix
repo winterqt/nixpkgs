@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-u3MvDiagCGD7WjagbVF+TtZ0ATe8WBT3xeyduxrXPi4=";
   };
 
-  cargoSha256 = "sha256-9oBnETZqJV35FEw6NImy6cqfVOVE5EHPNVGajE2UT10=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Count the number of lines of LLVM IR across all instantiations of a generic function";

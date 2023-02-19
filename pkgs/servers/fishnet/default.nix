@@ -29,7 +29,7 @@ rustPlatform.buildRustPackage rec {
     cp -v '${nnue}' 'Fairy-Stockfish/src/${nnueFile}'
   '';
 
-  cargoSha256 = "sha256-BJK7M/pjHRj74xoeciavhkK2YRpeogkELIuXetX73so=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # TODO: Cargo.lock is out of date, so fix it. Likely not necessary anymore in
   # the next update.

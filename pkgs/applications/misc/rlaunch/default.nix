@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "1w8qvny72l5358wnk4dmqnrv4mrpzxrzf49svav9grzxzzf8mqy2";
   };
 
-  cargoSha256 = "00lnw48kn97gp45lylv5c6v6pil74flzpsq9k69xgvvjq9yqjzrx";
+  cargoLock.lockFile = ./Cargo.lock;
 
   patches = [
     # Fixes "error[E0308]: mismatched types; expected `u8`, found `i8`" on aarch64

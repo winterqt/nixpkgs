@@ -12,7 +12,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-a9u8Ywxrdo4FFggotL8L5o5eDDu+MtcMVBG+jInXDVs=";
   };
 
-  cargoHash = "sha256-oT74oj/6rKB1cuRiHnbc9QVUZQcDvvb4KZf09XuctNM=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Run applications through VPN connections in network namespaces";

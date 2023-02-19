@@ -15,7 +15,7 @@ rustPlatform.buildRustPackage rec {
     url = "https://gitlab.com/snakedye/kile.git";
   };
 
-  cargoSha256 = "sha256-W7rq42Pz+l4TSsR/h2teRTbl3A1zjOcIx6wqgnwyQNA=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = [ scdoc ];
 

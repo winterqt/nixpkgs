@@ -23,7 +23,7 @@ rustPlatform.buildRustPackage rec {
     rm .cargo/config
   '';
 
-  cargoSha256 = "sha256-OFgt8yu2wlvkP/wjlmRRl8UyD9MUx9/0Rcs6K8jLkjo=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   OPENSSL_NO_VENDOR = true;
 
@@ -49,4 +49,3 @@ rustPlatform.buildRustPackage rec {
     platforms = platforms.unix;
   };
 }
-

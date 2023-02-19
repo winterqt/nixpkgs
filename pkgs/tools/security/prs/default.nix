@@ -23,7 +23,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-9/XKz+yOCFEB1VI2EK0xF5ecyBPeGztpGPo/aXQ6v5E=";
   };
 
-  cargoHash = "sha256-kxIgToqhJhUgJcxnGRGG6I+YqM2diFgQDyn1jBxWAw8=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   postPatch = ''
     # The GPGME backend is recommended

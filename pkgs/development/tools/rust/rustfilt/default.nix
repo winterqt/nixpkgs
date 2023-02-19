@@ -14,7 +14,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-zb1tkeWmeMq7aM8hWssS/UpvGzGbfsaVYCOKBnAKwiQ=";
   };
 
-  cargoSha256 = "sha256-rs2EWcvTxLVeJ0t+jLM75s+K72t+hqKzwy3oAdCZ8BE=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Demangle Rust symbol names using rustc-demangle";

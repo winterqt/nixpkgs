@@ -26,7 +26,7 @@ rustPlatform.buildRustPackage rec {
   # libgit2-sys 0.14.3 is only compatible with libgit2 1.4
   cargoPatches = [ ./update-git2.patch ];
 
-  cargoSha256 = "sha256-i/ERVPzAWtN4884051VoA/ItypyURpHb/Py6w3KDOAo=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = [
     pkg-config

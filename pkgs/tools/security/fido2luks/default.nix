@@ -27,7 +27,7 @@ rustPlatform.buildRustPackage rec {
     export LIBCLANG_PATH="${llvmPackages.libclang.lib}/lib"
   '';
 
-  cargoSha256 = "sha256-MPji87jYJjYtDAXO+v/Z4XRtCKo+ftsNvmlBrM9iMTk=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Decrypt your LUKS partition using a FIDO2 compatible authenticator";

@@ -10,7 +10,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-M2SK6KF8R0WcyFf8eTyYNK5oXj/DfCrAkUZJ3J2LF6U=";
   };
 
-  cargoSha256 = "sha256-MhEIDRC40zQ8mBXxONavtPr87SrueV57HhmIRLIagGA=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "When cut doesn't cut it";

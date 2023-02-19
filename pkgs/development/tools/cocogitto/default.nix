@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-Z0snC5NomUWzxI2qcRMxdZbC1aOQ8P2Ll9EdVfhP7ZU=";
   };
 
-  cargoHash = "sha256-P/xwE3oLVsIoxPmG+S0htSHhZxCj79z2ARGe2WzWCEo=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # Test depend on git configuration that would likly exist in a normal user enviroment
   # and might be failing to create the test repository it works in.

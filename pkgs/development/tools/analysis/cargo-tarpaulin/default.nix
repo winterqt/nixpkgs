@@ -17,7 +17,7 @@ rustPlatform.buildRustPackage rec {
   buildInputs = [ openssl ]
     ++ lib.optionals stdenv.isDarwin [ curl Security ];
 
-  cargoHash = "sha256-MXnE3Fq/jzWHvmO2i8cWixRKRuwVbUU/OmBj1SUkEiY=";
+  cargoLock.lockFile = ./Cargo.lock;
   #checkFlags = [ "--test-threads" "1" ];
   doCheck = false;
 

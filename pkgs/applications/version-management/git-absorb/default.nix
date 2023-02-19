@@ -15,7 +15,7 @@ rustPlatform.buildRustPackage rec {
 
   buildInputs = lib.optionals stdenv.isDarwin [ Security ];
 
-  cargoSha256 = "sha256-lP0fU2Cirta4WWha7Pgje537u6TbD5oiHLfamfzJtpU=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   postInstall = ''
     installManPage Documentation/git-absorb.1

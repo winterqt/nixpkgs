@@ -15,7 +15,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-ncZ1tof8InP+8KLTQ2YOwaD/liwU1LNZkllBm53VYNo=";
   };
 
-  cargoHash = "sha256-xxR80iizEej1vAzItaoqQnJDZ62dxPOeEdaUpgqhG7I=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   buildFeatures = [
     "cli"

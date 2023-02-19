@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "00xxz7awk01981daabp8m3kwq127y733ynijiwqgs8xvn4nkg8h6";
   };
 
-  cargoSha256 = "0avs833vb6q1avjbfygm55s83iy942xgqsx6qdzksry44n35s418";
+  cargoLock.lockFile = ./Cargo.lock;
 
   postPatch = ''
      substituteInPlace src/main.rs \

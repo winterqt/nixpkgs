@@ -38,7 +38,14 @@ rustPlatform.buildRustPackage rec {
     just man
   '';
 
-  cargoSha256 = "sha256-agepQVJbqbjzFbEBKbM7BNxc8FlklOrCsTgCAOcuptc=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "mutagen-0.2.0" = "sha256-AZj+CXhaVPFFxg4Vwuzrlg87fBk+mz5FJFfVWc+PrSo=";
+      "mutagen-core-0.2.0" = "sha256-AZj+CXhaVPFFxg4Vwuzrlg87fBk+mz5FJFfVWc+PrSo=";
+      "mutagen-transform-0.2.0" = "sha256-AZj+CXhaVPFFxg4Vwuzrlg87fBk+mz5FJFfVWc+PrSo=";
+    };
+  };
 
   postInstall = ''
     installShellCompletion completions/dog.{bash,fish,zsh}

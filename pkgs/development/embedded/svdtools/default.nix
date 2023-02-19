@@ -12,7 +12,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-x0C+1Ld4RImmS6x9l9jQaZ/sEd3iLFmmwOWNfA+xYsk=";
   };
 
-  cargoSha256 = "sha256-U1YiQdfk/SgRicAND0X8KdHKgX7wHnYspWNF270WDrE=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Tools to handle vendor-supplied, often buggy SVD files";

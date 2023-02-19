@@ -12,7 +12,7 @@ rustPlatform.buildRustPackage rec {
     url = "https://crates.io/api/v1/crates/${pname}/${version}/download#${pname}-${version}.tar.gz";
     sha256 = "sha256-GEnEcVYejDMnnJtGTbbMHOC85hYjGFEOIF9/Jdm3288=";
   };
-  cargoSha256 = "sha256-Yk43FM6YswlM/XYJD+XiunFsOY4+n/xVmnIIEo1ogKY=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # skip tests which require llvm-tools-preview
   checkFlags = [

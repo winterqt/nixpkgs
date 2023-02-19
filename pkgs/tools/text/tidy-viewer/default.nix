@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-z1H27D0DYQieU91FBZreN6XQCFvwxBJBIWBZRO50cnw=";
   };
 
-  cargoSha256 = "sha256-rLRyzQkwbjIMhLLHSuDKQznBIDV9iAqCUVg6q5gRhsA=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # this test parses command line arguments
   # error: Found argument '--test-threads' which wasn't expected, or isn't valid in this context

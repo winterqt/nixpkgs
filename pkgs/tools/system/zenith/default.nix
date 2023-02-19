@@ -26,7 +26,23 @@ rustPlatform.buildRustPackage rec {
     rm .cargo/config
   '';
 
-  cargoSha256 = "sha256-Y/vvRJpv82Uc+Bu3lbZxRsu4TL6sAjz5AWHAHkwh98Y=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "heim-0.1.0-rc.1" = "sha256-os4KumOEhtCPMlsiZif5EFswjLAHw+nuqDaCEFYcs8A=";
+      "heim-common-0.1.0-rc.1" = "sha256-os4KumOEhtCPMlsiZif5EFswjLAHw+nuqDaCEFYcs8A=";
+      "heim-cpu-0.1.0-rc.1" = "sha256-os4KumOEhtCPMlsiZif5EFswjLAHw+nuqDaCEFYcs8A=";
+      "heim-disk-0.1.0-rc.1" = "sha256-os4KumOEhtCPMlsiZif5EFswjLAHw+nuqDaCEFYcs8A=";
+      "heim-host-0.1.0-rc.1" = "sha256-os4KumOEhtCPMlsiZif5EFswjLAHw+nuqDaCEFYcs8A=";
+      "heim-memory-0.1.0-rc.1" = "sha256-os4KumOEhtCPMlsiZif5EFswjLAHw+nuqDaCEFYcs8A=";
+      "heim-net-0.1.0-rc.1" = "sha256-os4KumOEhtCPMlsiZif5EFswjLAHw+nuqDaCEFYcs8A=";
+      "heim-process-0.1.1-rc.1" = "sha256-os4KumOEhtCPMlsiZif5EFswjLAHw+nuqDaCEFYcs8A=";
+      "heim-runtime-0.1.0-rc.1" = "sha256-os4KumOEhtCPMlsiZif5EFswjLAHw+nuqDaCEFYcs8A=";
+      "heim-sensors-0.1.0-rc.1" = "sha256-os4KumOEhtCPMlsiZif5EFswjLAHw+nuqDaCEFYcs8A=";
+      "heim-virt-0.1.0-rc.1" = "sha256-os4KumOEhtCPMlsiZif5EFswjLAHw+nuqDaCEFYcs8A=";
+      "sysinfo-0.15.1" = "sha256-sOHd8x0M5gJGHHcK6RQWelEl1sZkQs9iUChM/hH12bM=";
+    };
+  };
 
   nativeBuildInputs = [ llvmPackages.clang ] ++ lib.optional nvidiaSupport makeWrapper;
   buildInputs = [ llvmPackages.libclang ] ++ lib.optionals stdenv.isDarwin [ IOKit ];

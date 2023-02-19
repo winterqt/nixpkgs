@@ -14,7 +14,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-Aq0MGhzSoJCkM0Wt/r5JSOz96LyRSgSryD7+m4aFZEA=";
   };
 
-  cargoSha256 = "sha256-WY4MnPNDWFEzFOehm7TqCL05Ea6n93f8VWBTOuqjBAg=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Tool to list listening sockets";

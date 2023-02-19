@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "1r1ahh8bmqrc7zb4bq5ka8bsngncf7im51nf5il49cvysij1i4q8";
   };
 
-  cargoSha256 = "sha256-qgKL+y+w+9ADClxLNwglHMufaysY0K9g29PyuXZ7x7g=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "A command-line tool to batch rename files and directories";

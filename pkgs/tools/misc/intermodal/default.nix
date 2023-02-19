@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-yPyKo2j0Up8gDzi2xOBqpMwIw6rpXDCxc8fCuEblwFY=";
   };
 
-  cargoHash = "sha256-inJZTP4YwCZZ0JvSdGWnZbLN0A0B/+fz4g0XsfIQeq8=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # include_hidden test tries to use `chflags` on darwin
   checkFlagsArray = lib.optionals stdenv.isDarwin [ "--skip=subcommand::torrent::create::tests::include_hidden" ];

@@ -19,7 +19,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-0IIzXY7AFTGEe0TzJVKOtTPUZee0Wz40yKgEWLeIYJw=";
   };
 
-  cargoSha256 = "sha256-zSq6YBlm6gJXGlF9xZ8gWSTMewdNqrJzwP58a0x8QIU=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   buildInputs = [
     libxkbcommon

@@ -48,7 +48,6 @@ let
   pinData = lib.importJSON ./pin.json;
   version = pinData.version;
   sha256 = pinData.sha256;
-  cargoSha256 = pinData.cargoSha256;
 in
 rustPlatform.buildRustPackage rec {
   pname = "solana-validator";
@@ -62,7 +61,7 @@ rustPlatform.buildRustPackage rec {
   };
 
   # partly inspired by https://github.com/obsidiansystems/solana-bridges/blob/develop/default.nix#L29
-  inherit cargoSha256;
+  cargoLock.lockFile = ./Cargo.lock;
   verifyCargoDeps = true;
 
   cargoBuildFlags = builtins.map (n: "--bin=${n}") solanaPkgs;

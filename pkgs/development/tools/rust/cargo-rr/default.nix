@@ -18,7 +18,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-lQS+bp1u79iO8WGrkZSFEuonr1eYjxIQYhUvM/kBao4";
   };
 
-  cargoSha256 = "sha256-PdKqWMxTtBJbNqITs3IjNcpijXy6MHitEY4jDp4jZro=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   passthru = {
     updateScript = gitUpdater {

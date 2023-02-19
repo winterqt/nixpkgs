@@ -12,7 +12,7 @@ rustPlatform.buildRustPackage rec {
     fetchSubmodules = true;
   };
 
-  cargoHash = "sha256-5VQNgZUgakQUczKs7T+c305c3I1DDSaVMO3tFXqIdIc=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # skip flaky tests
   checkFlags = [

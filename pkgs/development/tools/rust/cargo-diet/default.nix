@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-olF+F2y7F3ZpyluyslRDlfRKkWmE+zJ01bXyzy9x5EQ=";
   };
 
-  cargoSha256 = "sha256-ayi7Px1A8XzswlGnm31YWF7+8+lBChBaVJFwozSAimw=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Help computing optimal include directives for your Cargo.toml manifest";

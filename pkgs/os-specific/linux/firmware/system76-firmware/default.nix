@@ -17,7 +17,12 @@ rustPlatform.buildRustPackage rec {
 
   cargoBuildFlags = [ "--workspace" ];
 
-  cargoSha256 = "sha256-oyHnEWtQ0pl4SaJsnao+oTDBuu9PJdU3uqLTDowRWQw=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "ecflash-0.1.0" = "sha256-W613wbW54R65/rs6oiPAH/qov2OVEjMMszpUJdX4TxI=";
+    };
+  };
 
   # Purposefully don't install systemd unit file, that's for NixOS
   postInstall = ''

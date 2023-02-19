@@ -9,7 +9,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-PeH4oMeLxEM1pKqMsZBhsbmZOAVdLEmWKyPjuRNjowA=";
   };
 
-  cargoSha256 = "sha256-dvxQY1KgZGOCIeFoxfOewF9gm9xORLelJxJMMtrNWDs=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = {
     description = "BLAKE3 cryptographic hash function";

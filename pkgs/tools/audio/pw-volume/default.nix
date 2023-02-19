@@ -23,7 +23,7 @@ rustPlatform.buildRustPackage rec {
     })
   ];
 
-  cargoSha256 = "sha256-Vzd5ZbbzJh2QqiOrBOszsNqLwxM+mm2lbGd5JtKZzEM=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Basic interface to PipeWire volume controls";

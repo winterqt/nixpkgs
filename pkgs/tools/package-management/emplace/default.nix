@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-5PuSIOXns0FVLgyIw1mk8hZ/tYhikMV860BHTDlji78=";
   };
 
-  cargoSha256 = "sha256-UbbVjT5JQuVSCgbcelEVaAql4CUnCtO99zHp3Ei31Gs=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Mirror installed software on multiple machines";

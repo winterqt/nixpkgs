@@ -18,7 +18,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-9qvIxKg/fj08wYY2fK5J1nWzojStUb9ArXwvA/cTOcQ=";
   };
 
-  cargoHash = "sha256-kVnA8w2YVg6+h1V1O4cvciuB7GM4/LULFsGrzy8xUMQ=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = [ pandoc installShellFiles ];
   buildInputs = lib.optionals stdenv.isDarwin [ darwin.apple_sdk.frameworks.Security ];

@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage rec {
 
   nativeBuildInputs = [ pkg-config nix ];
 
-  cargoSha256 = "sha256-DZQ1Q+4I6Qm2WFvBoPNILp0wwP+01msx6zP12EHaPQc=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "An interactive Nix documentation tool";

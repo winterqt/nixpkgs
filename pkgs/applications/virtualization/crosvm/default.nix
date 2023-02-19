@@ -27,7 +27,7 @@ rustPlatform.buildRustPackage rec {
     })
   ];
 
-  cargoSha256 = "1jg9x5adz1lbqdwnzld4xg4igzmh90nd9xm287cgkvh5fbmsjfjv";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = [ clang pkg-config protobuf python3 wayland-scanner ];
 

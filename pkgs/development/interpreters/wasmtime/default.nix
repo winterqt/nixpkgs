@@ -12,7 +12,7 @@ rustPlatform.buildRustPackage rec {
     fetchSubmodules = true;
   };
 
-  cargoHash = "sha256-92BZdbNz22cZMJkHJwE3lUik6hAhRLCBwYzm2RAvRGo=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   cargoBuildFlags = [
     "--package wasmtime-cli"

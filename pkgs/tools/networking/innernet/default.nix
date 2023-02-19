@@ -21,7 +21,7 @@ rustPlatform.buildRustPackage rec {
     rev = "v${version}";
     sha256 = "sha256-jUL7/jHjfgpLg6728JQETbBcC2Q3G8d31oiwhkS+FD0=";
   };
-  cargoSha256 = "sha256-qQ6yRI0rNxV/TRZHCR69h6kx6L2Wp75ziw+B2P8LZmE=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = with llvmPackages; [
     llvm

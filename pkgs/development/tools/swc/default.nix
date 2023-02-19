@@ -13,7 +13,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-BzReetAOKSGzHhITXpm+J2Rz8d9Hq2HUagQmfst74Ag=";
   };
 
-  cargoSha256 = "sha256-1U9YLrPYENv9iJobCxtgnQakJLDctWQwnDUtpLG3PGc=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   buildFeatures = [ "swc_core/plugin_transform_host_native" ];
 

@@ -19,7 +19,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-tw9OLdXhqxgqROub0P/+nd4LQGNw3QDxlCyyf8ogRQM=";
   };
 
-  cargoSha256 = "sha256-5/xAX8BhB81cB7x2Pe/MKCV0Fi76ZcO6XHFQxTVIuLA=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = lib.optionals robloxSupport [
     pkg-config

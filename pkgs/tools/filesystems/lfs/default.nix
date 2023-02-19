@@ -14,7 +14,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-+BkHE4vl1oYNR5SX2y7Goly7OwGDXRoZex6YL7Xv2QI=";
   };
 
-  cargoSha256 = "sha256-njrjuLHDmcubw8lLPpS9K5la0gRIKq4OrP+MXs1Ro/o=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Get information on your mounted disks";

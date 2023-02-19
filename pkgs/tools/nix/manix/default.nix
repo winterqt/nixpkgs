@@ -13,7 +13,7 @@ rustPlatform.buildRustPackage rec {
 
   buildInputs = lib.optionals stdenv.isDarwin [ Security ];
 
-  cargoSha256 = "1yivx9vzk2fvncvlkwq5v11hb9llr1zlcmy69y12q6xnd9rd8x1b";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "A Fast Documentation Searcher for Nix";

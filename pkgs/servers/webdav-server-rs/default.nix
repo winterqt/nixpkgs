@@ -20,7 +20,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-nTygUEjAUXD0mRTmjt8/UPVfZA4rP6oop1s/fI5mYeg=";
   };
 
-  cargoHash = "sha256-TDDfGQig4i/DpsilTPqMQ1oT0mXK5DKlZmwsPPLrzFc=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   buildInputs = [ libtirpc ] ++ lib.optional enablePAM pam;
   nativeBuildInputs = [ rpcsvc-proto ];

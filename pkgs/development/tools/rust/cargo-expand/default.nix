@@ -14,7 +14,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-wJyCRg6qvkjjaFuFK6hTqt3u7ugFKAc9K4M/BojND6o=";
   };
 
-  cargoHash = "sha256-n4fraxlMtkVNNmteVBoS6BlS0qE6bpFL/fKRp2pjxIs=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "A utility and Cargo subcommand designed to let people expand macros in their Rust source code";

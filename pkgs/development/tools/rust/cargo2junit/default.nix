@@ -9,7 +9,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-wF1vDUVEume6aWzI5smTNlwc9WyZeTtUX416tYYrZPU=";
   };
 
-  cargoSha256 = "sha256-GUCHWV+uPHZwhU4UhdXE2GHpeVnqbUTpfivA9Nh9MoY=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Converts cargo's json output (from stdin) to JUnit XML (to stdout).";

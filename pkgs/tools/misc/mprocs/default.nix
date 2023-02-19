@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-uwr+cHenV38IsTEW/PQB0kCDsyahiQrBh4s8v8SyEn8=";
   };
 
-  cargoSha256 = "sha256-H9oHppG7sew/3JrUtWq2Pip1S9H36qYeHu6x/sPfwV0=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # Package tests are currently failing (even upstream) but the package seems to work fine.
   # Relevant issues:

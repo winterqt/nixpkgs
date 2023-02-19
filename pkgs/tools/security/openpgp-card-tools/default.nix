@@ -19,7 +19,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-Mvnj8AEhREP+nGrioC9IHYX3k6sKGKzOh00V8nslyhw=";
   };
 
-  cargoHash = "sha256-0KRq8GsrQaLJ6fopZpdzgxIWHIse9QWDo24IQj1eAhc=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = [ pkg-config rustPlatform.bindgenHook ];
   buildInputs = [ pcsclite nettle ] ++ lib.optionals stdenv.isDarwin [ PCSC ];

@@ -14,7 +14,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-OQk80eTUufVUbYvZ38el2lmkgkU+5gr0hLTrBvzIp4A=";
   };
 
-  cargoSha256 = "sha256-j+FcV5JtO66Aa0ncIUfjuWtqnMmFb7zW7rNXttYBUU4=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   buildFeatures = lib.optional withJson "json";
 

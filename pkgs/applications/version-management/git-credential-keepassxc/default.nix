@@ -17,7 +17,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-siVSZke+anVTaLiJVyDEKvgX+VmS0axa+4721nlgmiw=";
   };
 
-  cargoHash = "sha256-QMAAKkjWgM/UiOfkNMLQxyGEYYmiSvE0Pd8fZXYyN48=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   buildInputs = lib.optionals stdenv.isDarwin [ DiskArbitration Foundation ];
 

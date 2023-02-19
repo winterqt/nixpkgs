@@ -20,7 +20,26 @@ rustPlatform.buildRustPackage rec {
     popd
   '';
 
-  cargoSha256 = "sha256-WFoupcuaG7f7KYBn/uzbOzlHHLurOyvm5e1lEcinxC8=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "heed-0.10.6" = "sha256-rm02pJ6wGYN4SsAbp85jBVHDQ5ITjZZd+79EC2ubRsY=";
+      "heed-traits-0.7.0" = "sha256-rm02pJ6wGYN4SsAbp85jBVHDQ5ITjZZd+79EC2ubRsY=";
+      "heed-types-0.7.2" = "sha256-rm02pJ6wGYN4SsAbp85jBVHDQ5ITjZZd+79EC2ubRsY=";
+      "reqwest-0.11.9" = "sha256-wH/q7REnkz30ENBIK5Rlxnc1F6vOyuEANMHFmiVPaGw=";
+      "ruma-0.7.4" = "sha256-ztobLdOXSGyK1YcPMMIycO3ZmnjxG5mLkHltf0Fbs8s=";
+      "ruma-appservice-api-0.7.0" = "sha256-ztobLdOXSGyK1YcPMMIycO3ZmnjxG5mLkHltf0Fbs8s=";
+      "ruma-client-api-0.15.3" = "sha256-ztobLdOXSGyK1YcPMMIycO3ZmnjxG5mLkHltf0Fbs8s=";
+      "ruma-common-0.10.5" = "sha256-ztobLdOXSGyK1YcPMMIycO3ZmnjxG5mLkHltf0Fbs8s=";
+      "ruma-federation-api-0.6.0" = "sha256-ztobLdOXSGyK1YcPMMIycO3ZmnjxG5mLkHltf0Fbs8s=";
+      "ruma-identifiers-validation-0.9.0" = "sha256-ztobLdOXSGyK1YcPMMIycO3ZmnjxG5mLkHltf0Fbs8s=";
+      "ruma-identity-service-api-0.6.0" = "sha256-ztobLdOXSGyK1YcPMMIycO3ZmnjxG5mLkHltf0Fbs8s=";
+      "ruma-macros-0.10.5" = "sha256-ztobLdOXSGyK1YcPMMIycO3ZmnjxG5mLkHltf0Fbs8s=";
+      "ruma-push-gateway-api-0.6.0" = "sha256-ztobLdOXSGyK1YcPMMIycO3ZmnjxG5mLkHltf0Fbs8s=";
+      "ruma-signatures-0.12.0" = "sha256-ztobLdOXSGyK1YcPMMIycO3ZmnjxG5mLkHltf0Fbs8s=";
+      "ruma-state-res-0.8.0" = "sha256-ztobLdOXSGyK1YcPMMIycO3ZmnjxG5mLkHltf0Fbs8s=";
+    };
+  };
 
   nativeBuildInputs = [
     rustPlatform.bindgenHook

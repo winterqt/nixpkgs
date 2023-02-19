@@ -11,7 +11,13 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-0uqDuEpL9JCXzD7sQ3PDv4N1KtCSkoMoD5i402uIfas=";
   };
 
-  cargoSha256 = "sha256-PvMjLC133rlsPrgyESuVHIf2TPCtgGQQULCQvBTIJ20=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "tree-sitter-bash-0.19.0" = "sha256-QkH5rI9/7x6L7e3YIwDMdSbBHOGhhC6LTHfasS7wX9U=";
+      "tree-sitter-ocaml-0.20.1" = "sha256-JhJSg6Ht3dy94hAP2yy0fg9U/IeYNGaHYoys/++yOwg=";
+    };
+  };
 
   postInstall = ''
     install -Dm444 languages/* -t $out/share/languages

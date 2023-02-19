@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-UPpqkz/PwoMaJan9itfldjyTmZmiMb6PzCyu9Vtjj1s=";
   };
 
-  cargoSha256 = "sha256-8qrpW/gU7BvxN3nSbFWhbgu5bwsdzYZTS3w3kcwsGbU=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   buildInputs = lib.optional stdenv.isDarwin libiconv;
 
@@ -23,4 +23,3 @@ rustPlatform.buildRustPackage rec {
     maintainers = with maintainers; [ riey ];
   };
 }
-

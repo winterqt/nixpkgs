@@ -19,7 +19,7 @@ rustPlatform.buildRustPackage rec {
 
   buildInputs = [ libbsd ];
 
-  cargoSha256 = "161kz47d4psfvh0vm98k8qappg50lpsw1ybyy7s3g3bp6ivfz8jv";
+  cargoLock.lockFile = ./Cargo.lock;
 
   postInstall = ''
     installManPage inputplug.1
@@ -32,4 +32,3 @@ rustPlatform.buildRustPackage rec {
     maintainers = with maintainers; [ jecaro ];
   };
 }
-

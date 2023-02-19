@@ -29,7 +29,40 @@ rustPlatform.buildRustPackage rec {
     freetype
   ];
 
-  cargoSha256 = "sha256-w+E4UG7NC+HwsYwz90qO7WME5vhtO1GXWozssrLFEms=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "unic-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-bidi-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-char-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-char-basics-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-char-property-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-char-range-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-common-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-emoji-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-emoji-char-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-idna-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-idna-mapping-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-idna-punycode-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-normal-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-segment-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-ucd-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-ucd-age-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-ucd-bidi-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-ucd-block-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-ucd-case-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-ucd-category-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-ucd-common-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-ucd-hangul-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-ucd-ident-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-ucd-name-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-ucd-name_aliases-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-ucd-normal-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-ucd-segment-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-ucd-unihan-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+      "unic-ucd-version-0.9.0" = "sha256-pR7sgde+OM/B/8gfI0dN6nIPapdZFAXiWwQeaw2MDDI=";
+    };
+  };
 
   meta = with lib; {
     description = "Unicode tool with a terminal user interface";

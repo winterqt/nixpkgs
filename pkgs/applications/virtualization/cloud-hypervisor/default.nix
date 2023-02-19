@@ -16,7 +16,19 @@ rustPlatform.buildRustPackage rec {
   nativeBuildInputs = [ pkg-config ];
   buildInputs = [ openssl ] ++ lib.optional stdenv.isAarch64 dtc;
 
-  cargoSha256 = "sha256-30pUKZgGjjXP7UFY4y7XRXlHPF09mnyGWAhx7rPgs+o=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "kvm-bindings-0.6.0" = "sha256-QS8Rd05BmWf/juWKdjnj1aVDi69fCVVHrxpOzPVLCLQ=";
+      "micro_http-0.1.0" = "sha256-kI7Q0vY+DpkjK7M9ll70hah8ubZv6tpGp8NSR6lyw38=";
+      "mshv-bindings-0.1.1" = "sha256-uioAk7RdyGd8dN/dJz8OFmBBPma0B4YvBH/R8KpTPS4=";
+      "mshv-ioctls-0.1.1" = "sha256-uioAk7RdyGd8dN/dJz8OFmBBPma0B4YvBH/R8KpTPS4=";
+      "versionize_derive-0.1.4" = "sha256-1PVpNEBAIyLFIchgd8gbXVBIs7z8okJf7zyjCOlhrdU=";
+      "vfio-bindings-0.4.0" = "sha256-0QVBDWqj5kaw7jiqnM5ZB2dUhdCe5By2U2h1Gd7bU+U=";
+      "vfio-ioctls-0.2.0" = "sha256-0QVBDWqj5kaw7jiqnM5ZB2dUhdCe5By2U2h1Gd7bU+U=";
+      "vm-fdt-0.2.0" = "sha256-ebyEFceRYSG3vYgmPG8JNzVggeDKoqOyzHGaf/t2uCM=";
+    };
+  };
 
   OPENSSL_NO_VENDOR = true;
 

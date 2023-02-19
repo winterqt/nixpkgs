@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-hUTBDC2XU82jc9TbyCYVKgWxrKG/OIc1a+fEdj5566M=";
   };
 
-  cargoSha256 = "sha256-cU/X+oNTMjUSODkdm+P+vVLmBJlkeQ9WTJGvQmUOQKw=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # The tests need a GitHub API token.
   doCheck = false;

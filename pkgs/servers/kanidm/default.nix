@@ -26,7 +26,12 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-nE3zyigorAbDp5mgXzoyXWGOG+GaFC//SS/7Z9zj1Ps=";
   };
 
-  cargoSha256 = "sha256-/CcmKYPtBHNdhJnO0OmZtW/39HH58qmCE9hFbIiNsaE=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "tracing-forest-0.1.4" = "sha256-ofBLxSzZ5SYy8cbViVUa6VXKbOgd8lt7QUYhL0BW6I4=";
+    };
+  };
 
   KANIDM_BUILD_PROFILE = "release_nixos_${arch}";
 

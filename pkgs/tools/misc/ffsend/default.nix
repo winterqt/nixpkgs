@@ -26,7 +26,7 @@ buildRustPackage rec {
     sha256 = "sha256-L1j1lXPxy9nWMeED9uzQHV5y7XTE6+DB57rDnXa4kMo=";
   };
 
-  cargoSha256 = "sha256-zNLU9QnBGna5qb+iu2imOUvCIw3ZWRFsQlpFo5ECtKo=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = [ installShellFiles ]
     ++ lib.optionals stdenv.isLinux [ pkg-config ];

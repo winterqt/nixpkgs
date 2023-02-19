@@ -30,7 +30,34 @@ rustPlatform.buildRustPackage rec {
     export OPENSSL_LIB_DIR=${lib.getLib openssl}/lib
   '';
 
-  cargoSha256 = "sha256-QgvQ0ptfb4L465hn/aBpVAUwSvm4MkpZlBQaVrinkq4=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "derive_more-0.99.8-alpha.0" = "sha256-tEsfYC9oCAsDjinCsUDgRg3q6ruvayuA1lRmsEP9cys=";
+      "dfn_candid-0.8.0" = "sha256-7LXTwxSA9pTjFynMRzNRXie4x5u8BSLpFaOzpRsgrKA=";
+      "dfn_core-0.8.0" = "sha256-7LXTwxSA9pTjFynMRzNRXie4x5u8BSLpFaOzpRsgrKA=";
+      "dfn_http-0.8.0" = "sha256-7LXTwxSA9pTjFynMRzNRXie4x5u8BSLpFaOzpRsgrKA=";
+      "dfn_protobuf-0.8.0" = "sha256-7LXTwxSA9pTjFynMRzNRXie4x5u8BSLpFaOzpRsgrKA=";
+      "ic-base-types-0.8.0" = "sha256-7LXTwxSA9pTjFynMRzNRXie4x5u8BSLpFaOzpRsgrKA=";
+      "ic-crypto-internal-sha2-0.8.0" = "sha256-7LXTwxSA9pTjFynMRzNRXie4x5u8BSLpFaOzpRsgrKA=";
+      "ic-crypto-internal-types-0.8.0" = "sha256-7LXTwxSA9pTjFynMRzNRXie4x5u8BSLpFaOzpRsgrKA=";
+      "ic-crypto-sha-0.8.0" = "sha256-7LXTwxSA9pTjFynMRzNRXie4x5u8BSLpFaOzpRsgrKA=";
+      "ic-crypto-tree-hash-0.8.0" = "sha256-7LXTwxSA9pTjFynMRzNRXie4x5u8BSLpFaOzpRsgrKA=";
+      "ic-error-types-0.8.0" = "sha256-7LXTwxSA9pTjFynMRzNRXie4x5u8BSLpFaOzpRsgrKA=";
+      "ic-ic00-types-0.8.0" = "sha256-7LXTwxSA9pTjFynMRzNRXie4x5u8BSLpFaOzpRsgrKA=";
+      "ic-nns-common-0.8.0" = "sha256-7LXTwxSA9pTjFynMRzNRXie4x5u8BSLpFaOzpRsgrKA=";
+      "ic-nns-constants-0.8.0" = "sha256-7LXTwxSA9pTjFynMRzNRXie4x5u8BSLpFaOzpRsgrKA=";
+      "ic-protobuf-0.8.0" = "sha256-7LXTwxSA9pTjFynMRzNRXie4x5u8BSLpFaOzpRsgrKA=";
+      "ic-registry-keys-0.8.0" = "sha256-7LXTwxSA9pTjFynMRzNRXie4x5u8BSLpFaOzpRsgrKA=";
+      "ic-registry-transport-0.8.0" = "sha256-7LXTwxSA9pTjFynMRzNRXie4x5u8BSLpFaOzpRsgrKA=";
+      "ic-types-0.8.0" = "sha256-7LXTwxSA9pTjFynMRzNRXie4x5u8BSLpFaOzpRsgrKA=";
+      "ic-utils-0.8.0" = "sha256-7LXTwxSA9pTjFynMRzNRXie4x5u8BSLpFaOzpRsgrKA=";
+      "ledger-canister-0.8.0" = "sha256-7LXTwxSA9pTjFynMRzNRXie4x5u8BSLpFaOzpRsgrKA=";
+      "on_wire-0.8.0" = "sha256-7LXTwxSA9pTjFynMRzNRXie4x5u8BSLpFaOzpRsgrKA=";
+      "once_cell-1.4.0-alpha.0" = "sha256-5g26ZizSY5egH/4yU5glzBxpWzdvgKtDsckBpAUBatw=";
+      "phantom_newtype-0.8.0" = "sha256-7LXTwxSA9pTjFynMRzNRXie4x5u8BSLpFaOzpRsgrKA=";
+    };
+  };
 
   nativeBuildInputs = [ pkg-config protobuf ];
   buildInputs = [ openssl ]

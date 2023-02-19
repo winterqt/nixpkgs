@@ -10,7 +10,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-v+hXWyrY0GfSgXeqgYLgoOmeiHsZyhRO9Fmj5rPiNJ8=";
   };
 
-  cargoSha256 = "sha256-/WyaZxRFYJmz/qRp2s2v8swdwAtuNR7KXND20IzQoy8=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = {
     description = "one CLI to format the code tree";

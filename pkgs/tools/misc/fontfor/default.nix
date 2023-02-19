@@ -29,7 +29,7 @@ rustPlatform.buildRustPackage rec {
     freetype
   ];
 
-  cargoSha256 = "1drfrq32lvmi1xlshynzh66gb1cah43pqcyxv3qxp487br9w1iyj";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Find fonts which can show a specified character and preview them in browser";

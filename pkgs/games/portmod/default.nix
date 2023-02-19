@@ -31,7 +31,7 @@ let
     inherit src version;
     pname = "portmod-rust";
 
-    cargoHash = "sha256-3EfMMpSWSYsB3nXaoGGDuKQ9duyCKzbrT6oeATnzqLE=";
+    cargoLock.lockFile = ./Cargo.lock;
 
     nativeBuildInputs = [
       python3Packages.python

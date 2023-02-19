@@ -19,7 +19,7 @@ rustPlatform.buildRustPackage rec {
   # presence of certain AWS infrastructure
   doCheck = false;
 
-  cargoSha256 = "0qnfrwpdvjksc97iiwn1r6fyqaqn0q3ckbdzswf9flvwshqzb6ih";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Rust port for credstash. Manages credentials securely in AWS cloud";

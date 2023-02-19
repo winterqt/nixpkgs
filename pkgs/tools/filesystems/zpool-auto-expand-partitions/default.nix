@@ -18,7 +18,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-LA6YO6vv7VCXwFfayQVxVR80niSCo89sG0hqh0wDEh8=";
   };
 
-  cargoHash = "sha256-5v0fqp8aro+QD/f5VudMREc8RvKQapNAoArcCKMN1Sw=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   preBuild = ''
     substituteInPlace src/grow.rs \

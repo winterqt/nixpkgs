@@ -29,7 +29,7 @@ rustPlatform.buildRustPackage rec {
   # https://discourse.nixos.org/t/difficulty-using-buildrustpackage-with-a-src-containing-multiple-cargo-workspaces/10202
   sourceRoot = "source/tooling/cli";
 
-  cargoHash = "sha256-t5MlJpQOA5T/EwbPoSD95kATGReiZTmq+JkbDVbRj+0=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   buildInputs = lib.optionals stdenv.isLinux [ glibc libsoup cairo gtk3 webkitgtk ]
     ++ lib.optionals stdenv.isDarwin [ CoreServices Security ];

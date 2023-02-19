@@ -14,7 +14,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-bUUQP7ze0j8d+VEckexDOferAgAHdKZbdKR3q0TNOeE=";
   };
 
-  cargoSha256 = "sha256-E8eIUASjCIVsZhptbU41VfK8bFmA4FTT3LVagLrgUso=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     homepage = "https://nickel-lang.org/";

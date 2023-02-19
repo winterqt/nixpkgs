@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-xYSk0M8oNwbwZbKWDXMQlnt7vKi0p3+2Tr4eXCvtHEM=";
   };
 
-  cargoSha256 = "sha256-ZWqWtWzb+CLH1ravBb/oV+aPxplEyiC1wEFhvchcLqg=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # this patch must be removed after oberblastmeister/trashy#70 is solved or new
   # version is released.

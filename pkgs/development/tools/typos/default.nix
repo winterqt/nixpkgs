@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-+TNKHyLqW/R/YEpynr4twvQpgeOxbyIlgQjaQarSB8M=";
   };
 
-  cargoHash = "sha256-7D9oyQK9VWOSAI9jSYZn7t8ll4sILpugroLWlST4Eok=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Source code spell checker";

@@ -27,7 +27,40 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-LS6zYpMg0LanRL2M8ioGG8Ys07TPT/3hP7geEGehwxg=";
   };
 
-  cargoSha256 = "sha256-o7ahnV7NnvzKxXb7HdNqKcxekshOtKanYKb0Sy15mhs=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "automerge-0.0.2" = "sha256-MZ1/rca8ZsEUhd3bhd502PHlBbvqAOtnWFEdp7XWmYE=";
+      "automerge-0.1.0" = "sha256-dwbmx3W13oZ1O0Uw3/D5Z0ht1BO1PmVVoWc/tLCm0/4=";
+      "automerge-backend-0.0.1" = "sha256-MZ1/rca8ZsEUhd3bhd502PHlBbvqAOtnWFEdp7XWmYE=";
+      "automerge-frontend-0.1.0" = "sha256-MZ1/rca8ZsEUhd3bhd502PHlBbvqAOtnWFEdp7XWmYE=";
+      "automerge-protocol-0.1.0" = "sha256-MZ1/rca8ZsEUhd3bhd502PHlBbvqAOtnWFEdp7XWmYE=";
+      "cob-0.1.0" = "sha256-ewPJEx7OSr8X6e5QJ4dh2SbzZ2TDa8G4zBR5euBbABo=";
+      "git-ref-format-0.1.0" = "sha256-ewPJEx7OSr8X6e5QJ4dh2SbzZ2TDa8G4zBR5euBbABo=";
+      "git-ref-format-core-0.1.0" = "sha256-ewPJEx7OSr8X6e5QJ4dh2SbzZ2TDa8G4zBR5euBbABo=";
+      "git-ref-format-macro-0.1.0" = "sha256-ewPJEx7OSr8X6e5QJ4dh2SbzZ2TDa8G4zBR5euBbABo=";
+      "git-trailers-0.1.0" = "sha256-ewPJEx7OSr8X6e5QJ4dh2SbzZ2TDa8G4zBR5euBbABo=";
+      "librad-0.1.0" = "sha256-ewPJEx7OSr8X6e5QJ4dh2SbzZ2TDa8G4zBR5euBbABo=";
+      "libusb1-sys-0.6.2" = "sha256-AIh42Ruignzf1PLlwfbFLWXRSIXVskTzVTBioJatqEk=";
+      "link-async-0.1.0" = "sha256-ewPJEx7OSr8X6e5QJ4dh2SbzZ2TDa8G4zBR5euBbABo=";
+      "link-canonical-0.1.0" = "sha256-ewPJEx7OSr8X6e5QJ4dh2SbzZ2TDa8G4zBR5euBbABo=";
+      "link-canonical-derive-0.1.0" = "sha256-ewPJEx7OSr8X6e5QJ4dh2SbzZ2TDa8G4zBR5euBbABo=";
+      "link-crypto-0.1.0" = "sha256-ewPJEx7OSr8X6e5QJ4dh2SbzZ2TDa8G4zBR5euBbABo=";
+      "link-git-0.1.0" = "sha256-ewPJEx7OSr8X6e5QJ4dh2SbzZ2TDa8G4zBR5euBbABo=";
+      "link-identities-0.1.0" = "sha256-ewPJEx7OSr8X6e5QJ4dh2SbzZ2TDa8G4zBR5euBbABo=";
+      "link-replication-0.1.0" = "sha256-ewPJEx7OSr8X6e5QJ4dh2SbzZ2TDa8G4zBR5euBbABo=";
+      "link-tracking-0.1.0" = "sha256-ewPJEx7OSr8X6e5QJ4dh2SbzZ2TDa8G4zBR5euBbABo=";
+      "lnk-clib-0.1.0" = "sha256-ewPJEx7OSr8X6e5QJ4dh2SbzZ2TDa8G4zBR5euBbABo=";
+      "lnk-identities-0.1.0" = "sha256-ewPJEx7OSr8X6e5QJ4dh2SbzZ2TDa8G4zBR5euBbABo=";
+      "lnk-profile-0.1.0" = "sha256-ewPJEx7OSr8X6e5QJ4dh2SbzZ2TDa8G4zBR5euBbABo=";
+      "radicle-data-0.1.0" = "sha256-ewPJEx7OSr8X6e5QJ4dh2SbzZ2TDa8G4zBR5euBbABo=";
+      "radicle-git-ext-0.1.0" = "sha256-ewPJEx7OSr8X6e5QJ4dh2SbzZ2TDa8G4zBR5euBbABo=";
+      "radicle-git-helpers-0.1.0" = "sha256-ewPJEx7OSr8X6e5QJ4dh2SbzZ2TDa8G4zBR5euBbABo=";
+      "radicle-macros-0.1.0" = "sha256-ewPJEx7OSr8X6e5QJ4dh2SbzZ2TDa8G4zBR5euBbABo=";
+      "radicle-std-ext-0.1.0" = "sha256-ewPJEx7OSr8X6e5QJ4dh2SbzZ2TDa8G4zBR5euBbABo=";
+      "walletconnect-0.1.0" = "sha256-fdgdhotTYBmWbR4r0OMplOwhYq1C7jkuOdhKASjH+Fs=";
+    };
+  };
 
   nativeBuildInputs = [
     pkg-config

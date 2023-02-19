@@ -15,7 +15,7 @@ rustPlatform.buildRustPackage rec {
   # See for more info: https://github.com/FauconFan/mdbook-cmdrun/issues/2
   doCheck = false;
 
-  cargoHash = "sha256-h3xCnx6byToZx83uWNLz05F3VIDR0D1NVtSOKPuYeG4=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "mdbook preprocessor to run arbitrary commands";

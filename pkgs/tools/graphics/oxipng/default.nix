@@ -9,7 +9,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-stTwsU9XK3lF4q2sDgb9A1KG1NnhCfVxYWRiBvlmiqQ=";
   };
 
-  cargoHash = "sha256-XMIsdv2AHMGs0tDEWe3cfplZU9CbqEkHd7L5eS+V7j0=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   doCheck = !stdenv.isAarch64 && !stdenv.isDarwin;
 

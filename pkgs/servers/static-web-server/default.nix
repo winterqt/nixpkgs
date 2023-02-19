@@ -11,7 +11,13 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-c+bPe1t7Nhpx5fwwpLYtsuzxleLd4b1SwBFBaySmLOg=";
   };
 
-  cargoSha256 = "sha256-K+YXl1SFVe6aBt663QXlQFD8jB5pvlLwNqUvUP+5aU8=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "headers-0.3.8" = "sha256-SwjMIvLZJyShUNvRqprcRmKilBhV5vuY1EmuaTkbwK0=";
+      "headers-core-0.2.0" = "sha256-SwjMIvLZJyShUNvRqprcRmKilBhV5vuY1EmuaTkbwK0=";
+    };
+  };
 
   buildInputs = lib.optionals stdenv.isDarwin [
     darwin.apple_sdk.frameworks.Security

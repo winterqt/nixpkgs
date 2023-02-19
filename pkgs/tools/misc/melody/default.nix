@@ -10,7 +10,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-Az1pGRty7wAC5fN7RlO/etaW5w5TrsO6VVXv5M7NUfU=";
   };
 
-  cargoSha256 = "sha256-EhPrARdDnwdxfK1JHuuHVrxSDZhuE+kTBQr45JxluUA=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Language that compiles to regular expressions";

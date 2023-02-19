@@ -31,7 +31,6 @@ let
   # 4) run the ./result script that is output by that (it updates ./grammars)
   version = "0.20.7";
   sha256 = "sha256-5ILiN5EfJ7WpeYBiXynfcLucdp8zmxVOj4gLkaFQYts=";
-  cargoSha256 = "sha256-V4frCaU5QzTx3ujdaplw7vNkosbzyXHQvE+T7ntVOtU=";
 
   src = fetchFromGitHub {
     owner = "tree-sitter";
@@ -108,7 +107,9 @@ let
 in
 rustPlatform.buildRustPackage {
   pname = "tree-sitter";
-  inherit src version cargoSha256;
+  inherit src version;
+
+  cargoLock.lockFile = ./Cargo.lock;
 
   buildInputs =
     lib.optionals stdenv.isDarwin [ Security ];

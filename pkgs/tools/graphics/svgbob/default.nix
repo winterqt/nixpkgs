@@ -10,7 +10,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-NG5UbUv//03PVs5QoLVDkgA6Fc3SWKtbgIpcvcb7rW0=";
   };
 
-  cargoSha256 = "sha256-CdPTtn0NTcEAQvLTh4vdG053oZNNMmbP5IxmMU4YGAw=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   postInstall = ''
     mv $out/bin/svgbob_cli $out/bin/svgbob

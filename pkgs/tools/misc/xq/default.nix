@@ -13,7 +13,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-VR2ZUt0qvQBaFZr7Gui/LywsRrPubQlzYj1PQj05xhY=";
   };
 
-  cargoHash = "sha256-rX0fwJM8sHTuHIsmk9JpgWrTq1EA6Ksx7fFqWqY5R4k=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Pure rust implementation of jq";

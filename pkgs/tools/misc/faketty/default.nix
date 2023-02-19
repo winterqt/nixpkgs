@@ -9,7 +9,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-1q1TOwKC2Tse/Ct/6Nw7YiOviJyBZAsOBEp3sT4N0ss=";
   };
 
-  cargoSha256 = "sha256-x8+7sZJnA+kEwKAu8DBF8z7JhWjJ6ZFiLaQP8kFOt08=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   postPatch = ''
     patchShebangs tests/test.sh

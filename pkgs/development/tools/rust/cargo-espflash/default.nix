@@ -21,7 +21,7 @@ rustPlatform.buildRustPackage rec {
     Security
   ];
 
-  cargoSha256 = "sha256-82o3B6qmBVPpBVAogClmTbxrBRXY8Lmd2sHmonP5/s8=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Serial flasher utility for Espressif SoCs and modules based on esptool.py";

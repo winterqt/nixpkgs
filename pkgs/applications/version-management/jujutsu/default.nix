@@ -24,7 +24,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-ajBL2o5i4UmclL/s9eEVtn/p51/F4gsClmcYBrAZ+1o=";
   };
 
-  cargoSha256 = "sha256-RgF2StIMfFzbp0azG4yRPvzrZ4kczWtOWVd+KTTPbRw=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # Needed to get openssl-sys to use pkg-config.
   OPENSSL_NO_VENDOR = 1;

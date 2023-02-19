@@ -15,7 +15,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-N439ubEayoyfGrzkXE7+TeJQkddy8PZn5Lhmc/X5VxU=";
   };
 
-  cargoHash = "sha256-cIHz672jd8NKLyLvwsZInLerdA9MXRgWdpJFgMSgs9Q=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   passthru.tests = { inherit (nixosTests) podman; };
 

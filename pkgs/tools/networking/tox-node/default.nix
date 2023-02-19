@@ -13,7 +13,7 @@ rustPlatform.buildRustPackage rec {
 
   buildAndTestSubdir = "tox_node";
 
-  cargoSha256 = "sha256-L5IvYA32W8cTnuWjeljge5X+LZ912ugtcvEKXLqYZ+k=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   passthru.updateScript = nix-update-script { };
 

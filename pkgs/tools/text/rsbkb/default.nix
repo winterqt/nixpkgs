@@ -14,7 +14,7 @@ rustPlatform.buildRustPackage rec {
     rev = "release-${version}";
     hash = "sha256-SqjeH0eOo+upSfPWh2IW75p1VHMqmzAbCchDrXhvMxs=";
   };
-  cargoSha256 = "N3Xlw2JzTjqWLiVNCZaomsWQl330kGVlwdz4Gf05TGU=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # Setup symlinks for all the utilities,
   # busybox style

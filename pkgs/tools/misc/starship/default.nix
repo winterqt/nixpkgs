@@ -36,7 +36,7 @@ rustPlatform.buildRustPackage rec {
       --zsh <($out/bin/starship completions zsh)
   '';
 
-  cargoHash = "sha256-hs0ImaozKH6QcUfts+oseUqecg7bGX5cx50ixnNamW8=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeCheckInputs = [ git ];
 

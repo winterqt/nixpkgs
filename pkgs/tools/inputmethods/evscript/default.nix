@@ -11,7 +11,13 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-apq3kHipEX6zOTNwqpIQR46JqmeE7EKVSOGrNNSkyu8=";
   };
 
-  cargoSha256 = "sha256-1aR9/fhJQ+keRIxSG2cpY1HTalE6nM+MTb1Za3Tot28=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "evdev-0.10.1" = "sha256-iIzKhlA+7qg+nNwP82OIpoXVUEYU31iSEt1KJA3EewQ=";
+      "rusty-sandbox-0.2.0" = "sha256-Y4BjeMkyMbZzh1HiV56DlecRvYAxnLdOtEB5WGQj3GQ=";
+    };
+  };
 
   meta = with lib; {
     homepage = "https://github.com/unrelentingtech/evscript";

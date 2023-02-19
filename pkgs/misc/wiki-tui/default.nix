@@ -30,7 +30,7 @@ rustPlatform.buildRustPackage rec {
     Security
   ];
 
-  cargoHash = "sha256-xbjUdQs2t+cjplAlNVRN1Zw5CeAYv4+ir4Pvrt+/n9k=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "A simple and easy to use Wikipedia Text User Interface";

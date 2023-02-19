@@ -12,7 +12,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-STeLEHgggshhyLCfqiJmDcmwxqQ1AOGHj2ATliEY+DA=";
   };
 
-  cargoHash = "sha256-GGi4OduO9FPIWllxlx4tK3lix36zF0FNDyptzftV0GY=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     homepage = "https://github.com/dominikwilkowski/cfonts";

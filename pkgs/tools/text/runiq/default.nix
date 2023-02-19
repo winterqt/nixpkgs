@@ -9,7 +9,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-WPQgTQICZ0DFr+7D99UGMx+I78376IC6iIJ3tCsj0Js=";
   };
 
-  cargoSha256 = "sha256-QKtrd690eoPXyd5CQg5/yAiTDk297y60XaUdoeFAe0c=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "An efficient way to filter duplicate lines from input, à la uniq";

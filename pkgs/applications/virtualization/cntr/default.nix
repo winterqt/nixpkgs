@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-z+0bSxoLJTK4e5xS4CHZ2hNUI56Ci1gbWJsRcN6ZqZA=";
   };
 
-  cargoSha256 = "sha256-3e5wDne6Idu+kDinHPcAKHfH/d4DrGg90GkiMbyF280=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   passthru.tests = nixosTests.cntr;
 

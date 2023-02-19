@@ -21,7 +21,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "0rms8np8zd23xzrd5avhp2q1ndhdc8f49lfwpff9h0slw4rnzfnj";
   };
 
-  cargoSha256 = "sha256-4ghfenwmauR4Ft9n7dvBflwIMXPdFq1vh6FpIegHnZk=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = [ pkg-config ];
   buildInputs = [ postgresql sqlite ] ++ (

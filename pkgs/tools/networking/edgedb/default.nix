@@ -26,7 +26,23 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-U+fF0t+dj8wUfCviNu/zcoz3lhMXcQlDgz8B3gB+EJI=";
   };
 
-  cargoSha256 = "sha256-Pm3PBg7sbFwLHaozfsbQbPd4gmcMUHxmGT4AsQRDX0g=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "assert_cmd-1.0.1" = "sha256-0MkQG+JKrZXOn8B8q1HdyhZ1hVVb7dPbGEo/76o2YRc=";
+      "edgedb-client-0.3.0" = "sha256-2Ej2sdEMX9lKWJR9C8D/gIkewyHPPbY7HJaYs6VyJ2g=";
+      "edgedb-derive-0.3.0" = "sha256-2Ej2sdEMX9lKWJR9C8D/gIkewyHPPbY7HJaYs6VyJ2g=";
+      "edgedb-errors-0.2.1" = "sha256-2Ej2sdEMX9lKWJR9C8D/gIkewyHPPbY7HJaYs6VyJ2g=";
+      "edgedb-protocol-0.3.0" = "sha256-2Ej2sdEMX9lKWJR9C8D/gIkewyHPPbY7HJaYs6VyJ2g=";
+      "edgeql-parser-0.1.0" = "sha256-zWo5/ikoTZF17ABOwodygE3ygn0cGcwQ5B7KyarWIqA=";
+      "rexpect-0.3.0" = "sha256-0a//fPscEXEwv+73Ja7jRf2eRWfF6VCsck9ZZ15zgog=";
+      "rustls-0.19.1" = "sha256-zhE9NN1cLmWhRvw8i/9YYYOJp/1hgk+3LL7x4Pk6DC0=";
+      "rustyline-8.0.0" = "sha256-FyMx2nAVaX0pc481BTlNxeR/NfNrr57FWKLS7+EjPVw=";
+      "serde_str-1.0.0" = "sha256-CMBh5lxdQb2085y0jc/DrV6B8iiXvVO2aoZH/lFFjak=";
+      "tokio-rustls-0.22.0" = "sha256-83ffBxKKJHnjFR73R50ka/10Mre43eoTx1eI2op53p8=";
+      "warp-0.3.0" = "sha256-qImgS95fj57DJC0B/R8EV2z6ionHI1yV2OSkI9bq4bA=";
+    };
+  };
 
   nativeBuildInputs = [ makeWrapper pkg-config perl ];
 

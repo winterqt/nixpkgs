@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-XUxoHmZePn/VVlu2KctC+TbmCwp+tYEYg5EYXI8ZB7o=";
   };
 
-  cargoSha256 = "sha256-RyEqDC2gRacd27uvNf3XOATZdeVg70vBEdPURNuf38w=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Batch rename utility for developers";

@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "0vfl4y61cdrah98x6xcnb3cyi8rwhlws8ps6vfdlmr3dv30mbnbb";
   };
 
-  cargoSha256 = "0aqd9ixszwq6qmj751gxx453gwbhwqi16m72bkbkj9s6nfyqihql";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = [ pkg-config ];
 
@@ -25,4 +25,3 @@ rustPlatform.buildRustPackage rec {
     maintainers = with maintainers; [ expipiplus1 ];
   };
 }
-

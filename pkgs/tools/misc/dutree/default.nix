@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage rec {
     '';
   };
 
-  cargoSha256 = "0gg1w0xx36aswfm0y53nqwwz7zds25ysmklbrc8v2r91j74bhkzw";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "A tool to analyze file system usage written in Rust";

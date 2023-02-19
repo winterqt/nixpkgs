@@ -22,7 +22,7 @@ rustPlatform.buildRustPackage rec {
     fetchSubmodules = true;
   };
 
-  cargoSha256 = "sha256-qx6Ja0DMe4cEmDSpovtY9T3+0nJS9XivR92K3UKgacE=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = [
     pkg-config

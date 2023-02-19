@@ -18,7 +18,7 @@ rustPlatform.buildRustPackage rec {
     '';
   };
 
-  cargoHash = "sha256-xhNHvTVOBwAkMn/lLUShhZkBih1zX5b/udeJaEcZGgs=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   doCheck = false;
 

@@ -19,7 +19,7 @@ rustPlatform.buildRustPackage rec {
   nativeBuildInputs = [ capnproto protobuf ];
   doCheck = false;
 
-  cargoSha256 = "sha256-ruChRz2rnPalBiXcpco/WS/eDgg52ckPBLBuoQa9us4=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "An OCI container runtime monitor written in Rust";

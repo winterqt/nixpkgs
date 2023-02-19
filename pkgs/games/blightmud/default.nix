@@ -20,7 +20,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-AGKlkNpNdyD2cJGs350/076Qd/8M/nmRAaHJyefFRgw=";
   };
 
-  cargoSha256 = "sha256-RI0J60DCspJ501VR3TpqD6pjzO6//Qq1NgQb45d32ks=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   buildFeatures = lib.optional withTTS "tts";
 

@@ -23,7 +23,7 @@ rustPlatform.buildRustPackage rec {
 
   nativeBuildInputs = [ pkg-config ];
 
-  cargoHash = "sha256-Z8ras6W4BnAWjHe6rPd1X1d3US5gq7CxnBAkW//OTsg=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Simple command-line tool to send text and files to discord";

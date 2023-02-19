@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-OQhq5ZUe2OrfRFxoaAbbewoHgQVPv9cQy0VCpYe1SNo=";
   };
 
-  cargoHash = "sha256-vM4SoRbVylN90b378Qk18A8/2S2IB88lnGCM6sqrhs8=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # don't build swayr
   buildAndTestSubdir = pname;

@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-mxKjiciejnOTbSkCzOWdAtysRAnEv4JgntPS1qM9og8=";
   };
 
-  cargoHash = "sha256-kGe6XN03V+ILnlAcT0E8BvrYMa7ub05STFsFY6X5Gkk=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   passthru.tests.version = testers.testVersion {
     package = hex;

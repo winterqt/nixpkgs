@@ -15,7 +15,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "1zz91r37d6nqvdy29syq853krqdkigiqihwz7ww9kvagfvzvdh13";
   };
 
-  cargoSha256 = "1ikm9fqi37jznln2xsyzfm625lv8kwjzanpm3wglx2s1k1jkmcy9";
+  cargoLock.lockFile = ./Cargo.lock;
 
   postInstall = "make PREFIX=$out copy-data";
 

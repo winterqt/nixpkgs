@@ -9,7 +9,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-LeI46x5M2ZYUOIxuj9bCNwwucRLvoOkdRhsowmVxS68=";
   };
 
-  cargoHash = "sha256-pEwPnE2EpS+0bw3/SSKOCy8R5xUiG6mBMoup6wbrf+0=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   OPENSSL_DIR = "${lib.getDev openssl}";
   OPENSSL_LIB_DIR = "${lib.getLib openssl}/lib";

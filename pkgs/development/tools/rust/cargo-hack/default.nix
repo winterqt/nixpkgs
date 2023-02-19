@@ -9,7 +9,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-oiCZiwJr1BqMCWCNUOTQT3XPX0QZRr0wLewf8OU6lHA=";
   };
 
-  cargoSha256 = "sha256-g5O51V4BPNqzsQo1prLIpamqwcOy+SJat2Rb5UDHRLc=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # some necessary files are absent in the crate version
   doCheck = false;

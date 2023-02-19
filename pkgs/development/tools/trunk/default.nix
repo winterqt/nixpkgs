@@ -20,7 +20,7 @@ rustPlatform.buildRustPackage rec {
   # requires network
   checkFlags = [ "--skip=tools::tests::download_and_install_binaries" ];
 
-  cargoSha256 = "sha256-j/i2io1JfcNA7eeAXAAKMBtHORZm4J5dOFFNnzvx2cg=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     homepage = "https://github.com/thedodd/trunk";

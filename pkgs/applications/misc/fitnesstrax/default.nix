@@ -28,7 +28,7 @@ rustPlatform.buildRustPackage rec {
     gtk3
   ];
 
-  cargoSha256 = "0dlnlb3hqyh98y916wvdb4rd20az73brs8hqna2lgr7kv1pd77j7";
+  cargoLock.lockFile = ./Cargo.lock;
 
   postInstall = ''
     mkdir -p $out/share/glib-2.0/schemas

@@ -33,7 +33,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-u8/SvuR/RpJaBX4Dr3Onrk0AVpIAeVb+399+NUpgkfI=";
   };
 
-  cargoSha256 = "sha256-hnSumfZd9ylEx3dkTGW2s4VSv107MHOn21ytOcimhPw=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # enable pkg-config feature of zstd
   cargoPatches = [ ./zstd-pkg-config.patch ];

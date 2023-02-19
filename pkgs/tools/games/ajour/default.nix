@@ -46,7 +46,22 @@ in rustPlatform.buildRustPackage rec {
     sha256 = "sha256-oVaNLclU0EVNtxAASE8plXcC+clkwhBeb9pz1vXufV0=";
   };
 
-  cargoSha256 = "sha256-Q+wYBLsZN8YQtUJfrxmjImbnWRPmngJPB8sDG65LuJY=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "iced-0.3.0" = "sha256-cPQ0qqcdCMx2agSpAKSvVDBEoF/vUffGg1UkX85KmfY=";
+      "iced_core-0.4.0" = "sha256-cPQ0qqcdCMx2agSpAKSvVDBEoF/vUffGg1UkX85KmfY=";
+      "iced_futures-0.3.0" = "sha256-cPQ0qqcdCMx2agSpAKSvVDBEoF/vUffGg1UkX85KmfY=";
+      "iced_glow-0.2.0" = "sha256-cPQ0qqcdCMx2agSpAKSvVDBEoF/vUffGg1UkX85KmfY=";
+      "iced_glutin-0.2.0" = "sha256-cPQ0qqcdCMx2agSpAKSvVDBEoF/vUffGg1UkX85KmfY=";
+      "iced_graphics-0.2.0" = "sha256-cPQ0qqcdCMx2agSpAKSvVDBEoF/vUffGg1UkX85KmfY=";
+      "iced_native-0.4.0" = "sha256-cPQ0qqcdCMx2agSpAKSvVDBEoF/vUffGg1UkX85KmfY=";
+      "iced_style-0.3.0" = "sha256-cPQ0qqcdCMx2agSpAKSvVDBEoF/vUffGg1UkX85KmfY=";
+      "iced_web-0.4.0" = "sha256-cPQ0qqcdCMx2agSpAKSvVDBEoF/vUffGg1UkX85KmfY=";
+      "iced_wgpu-0.4.0" = "sha256-cPQ0qqcdCMx2agSpAKSvVDBEoF/vUffGg1UkX85KmfY=";
+      "iced_winit-0.3.0" = "sha256-cPQ0qqcdCMx2agSpAKSvVDBEoF/vUffGg1UkX85KmfY=";
+    };
+  };
 
   nativeBuildInputs = [
     autoPatchelfHook

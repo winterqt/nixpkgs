@@ -9,7 +9,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-aunejitHVNIB/zIDgX3mlA1FzG7wIxlDCFdUvtuzQnc=";
   };
 
-  cargoSha256 = "sha256-Nabc2lPpsUCcWEJzL6U84UoIJ5PCtYKVyLRhjhiqhpE=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Trusty terminal typing tester";

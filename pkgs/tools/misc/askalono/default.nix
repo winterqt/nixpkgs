@@ -13,7 +13,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-7l5bHSsmuMoHbbOI3TAYFeHwD3Y62JvfrrXZa08V3+U=";
   };
 
-  cargoHash = "sha256-OkN8V37GApJvremRJlWG3HSpWgMC17Ge8JMTiQVoc/g=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "A tool to detect open source licenses from texts";

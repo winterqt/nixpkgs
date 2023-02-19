@@ -9,7 +9,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-j6fWCIXfVS5b3NZizhg9pI+kJkWlR1eGUSW9hJO1/mQ=";
   };
 
-  cargoSha256 = "sha256-ycvGw99CcE29axG9UWD0lkQp5kxD6Eguco5Fh9Vfj6E=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   buildInputs = [ libbfd libopcodes libunwind ];
 

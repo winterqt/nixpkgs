@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-OFtOa6StpOuLgkULnY5MlqDcSTEiMxogowHIBEiGr4E=";
   };
 
-  cargoSha256 = "sha256-lvLiRQNH3rpu+JTXWhQtXczmGRWGtnnLDknZaMp3d0s=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "A hex editor with vim like keybindings written in Rust";

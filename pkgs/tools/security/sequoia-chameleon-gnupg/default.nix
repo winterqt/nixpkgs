@@ -19,7 +19,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-8aKT39gq6o7dnbhKbDxewd4R2e2IsbYU8vaDwYemes8=";
   };
 
-  cargoHash = "sha256-Z6cXCHLrK+BcIeVCKH2l8n9SivZsZPhXGhaMObn6rjo=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = [
     rustPlatform.bindgenHook

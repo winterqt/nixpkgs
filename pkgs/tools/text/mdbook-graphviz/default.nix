@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage rec {
     ./update-mdbook-for-rust-1.64.patch
   ];
 
-  cargoHash = "sha256-keDyfXooPU/GOx56OTq5psDohfZ0E478bnWn0bbC29o=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   buildInputs = lib.optionals stdenv.isDarwin [ CoreServices ];
 

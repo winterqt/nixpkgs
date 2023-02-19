@@ -14,7 +14,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-AbljduMz4mz5InsHKCq0K6i9F/lBgvdy0+W8aclr0R0=";
   };
 
-  cargoSha256 = "sha256-jrxVMGJk4o9aROtFZBc8G/HP5xm9MjVyewww1DzrRdM=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   doInstallCheck = true;
   postInstallCheck = ''
@@ -28,4 +28,3 @@ rustPlatform.buildRustPackage rec {
     maintainers = with maintainers; [ polarmutex ];
   };
 }
-

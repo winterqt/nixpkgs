@@ -4,7 +4,7 @@ rustPlatform.buildRustPackage rec {
   pname = "rm-improved";
   version = "0.13.0";
 
-  cargoSha256 = "0wgpr6gx9dpvf02xgvrdbyiqfz1k9vipnvriz3jg0cz7n1afqisj";
+  cargoLock.lockFile = ./Cargo.lock;
 
   src = fetchFromGitHub {
     owner = "nivekuil";

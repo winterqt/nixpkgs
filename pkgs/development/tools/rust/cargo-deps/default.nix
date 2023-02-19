@@ -9,7 +9,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-0zK1qwu+awZGd9hgH2WRrzJMzwpI830Lh//P0wVp6Js=";
   };
 
-  cargoSha256 = "sha256-ZPQIt+TL1OKX3Ch4A17eAELjaSTo2uk+X6YWFAXvWJA=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Cargo subcommand for building dependency graphs of Rust projects";

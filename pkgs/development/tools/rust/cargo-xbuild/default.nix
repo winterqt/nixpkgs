@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-bnceN47OFGlxs3ibcKoZFjoTgXRQxA2ZqxnthJ/fsqE=";
   };
 
-  cargoSha256 = "sha256-qMPJC61ZVW9olMgNnGrvcQ/je4se4J5gOVoaOpNMUo8=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Automatically cross-compiles the sysroot crates core, compiler_builtins, and alloc";

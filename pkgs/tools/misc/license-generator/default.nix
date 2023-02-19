@@ -9,7 +9,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-ijA/AqLeQ9/XLeCriWNUA6R3iKyq+QPDH5twSvqFmEA=";
   };
 
-  cargoHash = "sha256-FfkCV4anPHElGGIOYDSzHam5ohVGpOgtu/nM0aw9HzU=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Command-line tool for generating license files";

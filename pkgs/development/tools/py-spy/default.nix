@@ -29,7 +29,7 @@ rustPlatform.buildRustPackage rec {
 
   nativeCheckInputs = [ python3 ];
 
-  cargoSha256 = "sha256-nm+44YWSJOOg9a9d8b3APXW50ThV3iA2C/QsJMttscE=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Sampling profiler for Python programs";

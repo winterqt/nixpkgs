@@ -21,7 +21,7 @@ in rustPlatform.buildRustPackage rec {
   version = src.version;
   src = passthru.mkSource sources.npins;
 
-  cargoSha256 = "sha256-NDu4nl4Os7Mgal8gBHC6bsZ2Z+Fqt0PlGdLHiPd/8T4=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   buildInputs = lib.optional stdenv.isDarwin (with darwin.apple_sdk.frameworks; [ Security ]);
   nativeBuildInputs = [ makeWrapper ];

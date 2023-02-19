@@ -42,7 +42,7 @@ rustPlatform.buildRustPackage rec {
     fetchSubmodules = false;
   };
 
-  cargoSha256 = "sha256-U/XvllkzEVt4TpDPA5gSRKpIIQagATGdHh7YPFOo4CY=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   buildNoDefaultFeatures = true;
   buildFeatures = [

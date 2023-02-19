@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-o7kzQ8jtAqDwTUPtjeNqgotxREeWl7jQG+EDrYWJL/Q=";
   };
 
-  cargoSha256 = "sha256-ayyYrrFDVOYVjVo5TLaRn2mvmywe5BjQ7kRVV2r0iK8=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # The bin feature activates all dependencies of the binary. Otherwise,
   # only the library is build.
@@ -42,4 +42,3 @@ rustPlatform.buildRustPackage rec {
     maintainers = with maintainers; [ phip1611 ];
   };
 }
-

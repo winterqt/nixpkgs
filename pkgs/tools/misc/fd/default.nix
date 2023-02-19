@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-RVGCSUYyWo2wKRIrnci+aWEAPW9jHhMfYkYJkCgd7f8=";
   };
 
-  cargoSha256 = "sha256-PT95U1l+BVX7sby3GKktZMmbNNQoPYR8nL+H90EnqZY=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   auditable = true; # TODO: remove when this is the default
 

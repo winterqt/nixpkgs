@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-jpiwbjsYsb5scFbjtv2eTv6oo0HWWTYLpnpTZ8DEqb0=";
   };
 
-  cargoSha256 = "sha256-biHDnLu7OiYpnwtmayk2m6QYvX51YUVJH2FGP4qo14Q=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "TCP connection hijacker";

@@ -13,7 +13,7 @@ rustPlatform.buildRustPackage rec {
 
   buildInputs = lib.optionals stdenv.isDarwin [ Security ];
 
-  cargoHash = "sha256-pjUFMvIBl5uJahJBEoSVe6msVRWGlxazcwwxPEU0S3g=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # Disable the GUI file picker so that GTK/XDG dependencies aren't used
   buildNoDefaultFeatures = true;

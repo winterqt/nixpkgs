@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-xFumnivtVwu5fFBOrTxrv6fv3geHKF04RGP23EsDVaI=";
   };
 
-  cargoSha256 = "sha256-tF8E9mnvkTXoViVss9cNjpU4UkEsARp4RtlxKWq55hc=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   passthru.tests = {
     version = testers.testVersion { package = alejandra; };

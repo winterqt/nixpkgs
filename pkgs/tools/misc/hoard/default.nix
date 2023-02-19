@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage rec {
 
   nativeBuildInputs = [ pkg-config ];
 
-  cargoHash = "sha256-ZNhUqnsme1rczl3FdFBGGs+vBDFcFEELkPp0/udTfR4=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "CLI command organizer written in rust";

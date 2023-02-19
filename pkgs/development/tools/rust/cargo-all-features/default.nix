@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "1pdr34ygc0qmh0dyrw1qcrh1vgg9jv9lm6ypl3fgjzz7npdj1dw4";
   };
 
-  cargoSha256 = "sha256-BsRJo55gYT8OkDUBepWq48sW7QPt5OZkm8RR9f7HqZY=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "A Cargo subcommand to build and test all feature flag combinations";

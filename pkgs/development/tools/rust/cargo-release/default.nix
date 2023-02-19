@@ -20,7 +20,15 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-6vl8aVZc1pLRXNWbwCWOg/W40TXe29CtXZy2uOLc5BQ=";
   };
 
-  cargoHash = "sha256-xz6xjYHBltMo2abQxVTA9mAI4htqqxUc5s5ksKbmrno=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "cargo-test-macro-0.1.0" = "sha256-N5jCEZRwucJU3y8kpNMeDzazcVQI3aTKAkBSgBRNHNg=";
+      "cargo-test-support-0.1.0" = "sha256-N5jCEZRwucJU3y8kpNMeDzazcVQI3aTKAkBSgBRNHNg=";
+      "cargo-util-0.2.2" = "sha256-N5jCEZRwucJU3y8kpNMeDzazcVQI3aTKAkBSgBRNHNg=";
+      "crates-io-0.34.0" = "sha256-N5jCEZRwucJU3y8kpNMeDzazcVQI3aTKAkBSgBRNHNg=";
+    };
+  };
 
   nativeBuildInputs = [
     pkg-config

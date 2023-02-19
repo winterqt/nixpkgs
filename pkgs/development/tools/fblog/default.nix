@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-A5/TwISGsk9L0Z/ZF9Z/fxiMG+rcPgtAr2BNVJ+1Xfo=";
   };
 
-  cargoSha256 = "sha256-BrhYHUx28Sb6eNU3nTMlMewtokyY6+I5ww+bBVshQqk=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "A small command-line JSON log viewer";

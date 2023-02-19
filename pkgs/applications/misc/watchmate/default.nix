@@ -22,7 +22,12 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-WRoAQDOsCi9VbshGzdw+qrVFKQhOQwPgxOfWXYJ3nhg=";
   };
 
-  cargoHash = "sha256-pEXC5IVcMhqYM+bGyTh/vaSS9LxYE2YbtIaPplc4Al8=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "mpris2-zbus-0.1.0" = "sha256-f2hth7TnA14I4UPyp0u4IfMi9WY4G3M1sEc4xNtnbr0=";
+    };
+  };
 
   nativeBuildInputs = [
     pkg-config

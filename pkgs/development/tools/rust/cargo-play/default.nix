@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-Z5zcLQYfQeGybsnt2U+4Z+peRHxNPbDriPMKWhJ+PeA=";
   };
 
-  cargoSha256 = "sha256-I+keVi0fxUVttMHOGJQWVfIpHEQu/9aTbERa3qiHmnQ=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # these tests require internet access
   checkFlags = [

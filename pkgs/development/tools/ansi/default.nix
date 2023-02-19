@@ -9,7 +9,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-KGPlNXkF16VdoOb3tg3nsQRdtgU83z7ibPy965bvvDk=";
   };
 
-  cargoSha256 = "sha256-Q46VKBrOsjqUeSruuK/Bur2L69JAGr3c+ianfPlfzi0=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Quickly get ANSI escape sequences";

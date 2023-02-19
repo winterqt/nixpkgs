@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-Nv3MYZcuYgD66BAGs3Tg37s086HAGsaDBFvELqQF3Tk=";
   };
 
-  cargoSha256 = "sha256-c1L6nEUBHw1YegmoRrI3WU/bF80Nzbz13hsGlNyBR9o=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "the name service non-caching daemon";

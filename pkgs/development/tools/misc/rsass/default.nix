@@ -10,7 +10,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-IaXfxccRRY868waEPI7qbWp1SSAhJlRqgeEiRNddC/c=";
   };
 
-  cargoSha256 = "sha256-2owdX9ePHcAXpE43Svan252lAa5ICk0/DrDeADegZ6U=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Sass reimplemented in rust with nom";

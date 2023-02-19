@@ -15,7 +15,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-iexSMcD4XHEYeVWWQXQ7VLZwtUQeEkvrLxMXuxYuxts=";
   };
 
-  cargoSha256 = "sha256-6dDv4+yEKxFjbguMfQxPm18PgZ2DC9IVbmpw2N94mEo=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   postPatch = ''
     # CLI tests will fail in the sandbox

@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-m4bCni/9rMTPhZSogpd5+ARrW11TPHSvQpdz3wUr9H4=";
   };
 
-  cargoSha256 = "sha256-2xR2/013ocDKWS1oWitpAbSDPRwEJJqFcCIm6ZQpCoc=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Command line tool to translate morse code input to text in real time";

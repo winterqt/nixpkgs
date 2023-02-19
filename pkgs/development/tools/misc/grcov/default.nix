@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-fyITsOlkBY1f9AjQqUII7G1Onm0i0FIqNspPi8J+eOM=";
   };
 
-  cargoSha256 = "sha256-qbxJJGwJ7hRNIujud10AYnM2NaNwjBB5zhOxXp/5z/k=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # tests do not find grcov path correctly
   checkFlags = let

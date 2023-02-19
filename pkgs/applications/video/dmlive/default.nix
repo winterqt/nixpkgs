@@ -22,7 +22,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-weWl9voqTP/1ZBSLuMFzfWE5NskHNPJnFYy9n9IgcZk=";
   };
 
-  cargoHash = "sha256-9bonyOCQfO5Eq8T2GVCri+INCe4RUOK28nw4cnmmAWs=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   OPENSSL_NO_VENDOR = true;
 

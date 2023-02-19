@@ -27,7 +27,7 @@ rustPlatform.buildRustPackage rec {
     '';
   };
 
-  cargoSha256 = "sha256-0VHrlUoyYu+UTUQUioftBDlQJfLd/axz6bGJs+YXSmE=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # Compile-time environment variables for where to find assets needed at runtime
   POLARIS_WEB_DIR = "${polaris-web}/share/polaris-web";

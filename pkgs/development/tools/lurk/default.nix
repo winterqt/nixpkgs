@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-Vvz1CWNpMbVpICL42VQHLM7AWSONGSXP5kfZ8rZlw8M=";
   };
 
-  cargoSha256 = "sha256-AoFkgm13vj/18GOuSIgzs+xk82lSQ6zGpq4QVWcClv8=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "A simple and pretty alternative to strace";

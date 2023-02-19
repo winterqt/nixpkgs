@@ -13,7 +13,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-gfEO7Rrzc4KSnSXFrMmGLrTXuZIUCdumt2N429nHPi8=";
   };
 
-  cargoSha256 = "sha256-k/5CG8bf5RuO6K9mEj6seqV6AuWMqatBRDaSS0guhi0=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "A tiny, self-contained, configurable paste bin and URL shortener written in Rust";

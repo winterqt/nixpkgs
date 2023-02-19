@@ -9,7 +9,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-+HnoYFRG7GGef5lV4CUsUzqPzFUzXDajprLu25SCMQo=";
   };
 
-  cargoHash = "sha256-hOPj3c3WIISRqP/9Kpc/Yh9Z/wfAkHQ/731+BkWElIQ=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "A simple tool to do basic modification of ini files";

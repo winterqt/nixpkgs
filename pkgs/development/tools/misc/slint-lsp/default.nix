@@ -32,7 +32,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-M4rd7179hpQW8jqjCY9ce64AhE6YWOC32tJg3v+00bo=";
   };
 
-  cargoHash = "sha256-3HcgnC2PQUyINm2gjxzqbCicvcGvpYtQn1p3qnqBzjc=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = [ cmake pkg-config fontconfig ];
   buildInputs = rpathLibs ++ [ xorg.libxcb.dev ]

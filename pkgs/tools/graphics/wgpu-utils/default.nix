@@ -11,7 +11,13 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-MdomiE/qHpyVFlgH5wGsFDiXIp6p1wHXsAtmlo/XfEg=";
   };
 
-  cargoHash = "sha256-83iQ/YcItRsTfp73xi5LZF8AyvyAXJCHuNWXgc1wHkM=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "d3d12-0.6.0" = "sha256-xCazXUriIQWMVa3DOI1aySBATmYwyDqsVYULRV2l/44=";
+      "naga-0.11.0" = "sha256-q5cYmsWUwLcVS2ZmKd6YvEz3Z8IPP1dRCgQhRhgadoE=";
+    };
+  };
 
   nativeBuildInputs = [
     pkg-config

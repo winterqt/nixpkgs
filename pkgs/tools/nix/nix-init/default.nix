@@ -24,7 +24,13 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-x9UrBCnEGz6nI1XGBLjIeiF3qi3EvynAfafiuhQdt9Q=";
   };
 
-  cargoHash = "sha256-RUfprANAbj8w8LPRwQEF9SD9fhWb1CEcwbvOa6DX9Xk=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "rustyline-10.1.0" = "sha256-7Bqhl9NhvadqYXsM4D+qAATM5cKgB75qF5k/0/0By7Y=";
+      "rustyline-derive-0.7.0" = "sha256-7Bqhl9NhvadqYXsM4D+qAATM5cKgB75qF5k/0/0By7Y=";
+    };
+  };
 
   nativeBuildInputs = [
     installShellFiles

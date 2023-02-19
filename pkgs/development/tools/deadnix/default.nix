@@ -14,7 +14,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-T8VwxHdy5KI2Kob5wYWGQOGYYJeSfWVPygIOe0PYUMY=";
   };
 
-  cargoSha256 = "sha256-0pe1zOHoNoAhCb0t8BnL7XewyoqOzVL5w3MTY8pUkUY=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Find and remove unused code in .nix source files";

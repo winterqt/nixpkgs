@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-wFTvzAzboUFQg3fauIwIdRChK7rmLES92jK+8ff1D3s=";
   };
 
-  cargoSha256 = "sha256-PtJbLpAUH44alupFY6wX++t/QsKknn5bXvnXzdYsd9o=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Wordle TUI in Rust";

@@ -23,7 +23,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-wMF2uF6h06c/vBBXr2IGk/9RsOxnxvffEtIOR+s+iVk=";
   };
 
-  cargoSha256 = "sha256-UF0bEV77IqGBmqGCqg2cHzom7JDRqlLpoSxbNQsKKiY=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   preCheck = ''
     export HOME=$(mktemp -d)

@@ -18,7 +18,7 @@ rustPlatform.buildRustPackage rec {
 
   buildInputs = lib.optionals stdenv.isDarwin [ Security ];
 
-  cargoHash = "sha256-9qXoMugmL6B9vC/yrMJxZ5p792ZJmrTzk/khRVTkHf4=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "MozillaVPN configuration manager giving Linux, macOS users (among others), access to MozillaVPN";

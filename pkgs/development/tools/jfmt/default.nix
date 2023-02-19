@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-X3wk669G07BTPAT5xGbAfIu2Qk90aaJIi1CLmOnSG80=";
   };
 
-  cargoHash = "sha256-u/v3P7iPdBJU/0wlSNBq/cjnM3XOnoVfUjrrmo4sTAA=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "CLI utility to format json files";

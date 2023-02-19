@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-gaY34ziC+ugw/HUTSh0Uk5WBfWMRZLybfpAMkUzsj8g=";
   };
 
-  cargoSha256 = "sha256-bdcdlnNr4CdkIJNoo8tb4ohVDmAcKIOP0nRr6BM+EPw=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # Fixes https://github.com/cross-rs/cross/issues/943
   cargoPatches = [

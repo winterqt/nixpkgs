@@ -35,7 +35,7 @@ rustPlatform.buildRustPackage rec {
   # Tests require network access to a test server
   doCheck = false;
 
-  cargoSha256 = "sha256-Zv7TTQw4UcuQBhEdjD5nwcE1LonUHLUFf9BVhRWWuDo=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   postInstall = ''
     installManPage docs/manual/hurl.1 docs/manual/hurlfmt.1

@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-jDjP0sHzKHvat/2x6/vhi/ZtdooK3y5wDRujPgi+T4E=";
   };
 
-  cargoSha256 = "sha256-VFOLNl9kh1EjJaWr3chjyFJqF81vNeqbVqtVElCkZyY=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   LIBCAPNG_LIB_PATH = "${lib.getLib libcap_ng}/lib";
   LIBCAPNG_LINK_TYPE =

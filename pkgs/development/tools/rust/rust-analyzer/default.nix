@@ -13,7 +13,7 @@
 rustPlatform.buildRustPackage rec {
   pname = "rust-analyzer-unwrapped";
   version = "2023-02-06";
-  cargoSha256 = "sha256-TYMK905P5FvDxWo3ntDjNsgYxz+tBQptxWh5p6OKE64=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   src = fetchFromGitHub {
     owner = "rust-lang";

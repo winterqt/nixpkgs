@@ -33,7 +33,12 @@ let
 
   rdpClient = rustPlatform.buildRustPackage rec {
     pname = "teleport-rdpclient";
-    cargoHash = "sha256-TSIwLCY01ygCWT73LR/Ch7NwPQA3a3r0PyL3hUzBNr4=";
+    cargoLock = {
+      lockFile = ./Cargo.lock;
+      outputHashes = {
+        "rdp-rs-0.1.0" = "sha256-GJfUyiYQwcDTMqt+iik3mFI0f6mu13RJ2XuoDzlg9sU=";
+      };
+    };
     inherit version src;
 
     buildAndTestSubdir = "lib/srv/desktop/rdp/rdpclient";

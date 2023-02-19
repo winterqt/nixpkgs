@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-HtyT9kFS7derPhiBzICHIz3AvYVcYpUj1OW+t5RivRs=";
   };
 
-  cargoSha256 = "sha256-sHsmHCMuHc56Mkqk2NUtZgC0RGyqhPvW1fKHkEAhqYk=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "The CLI text viewer tool that works like less command on small pane within the terminal window";

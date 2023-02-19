@@ -28,7 +28,7 @@ rustPlatform.buildRustPackage rec {
     udev
   ];
 
-  cargoSha256 = "sha256-hxHWfxNGmpX4mWj1ozOhhOyZI9J3aQzv3yvWFst81aU=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Keyboard configuration application for System76 keyboards and laptops";

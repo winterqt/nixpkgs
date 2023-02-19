@@ -9,7 +9,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-rSuHFVUYpL1v5ba0q15mNEuAHzFF9tWxFs3zTJt5zcc=";
   };
 
-  cargoSha256 = "sha256-x//spFPlmJJAIyI5RgnYlMORi4eCXc8p7iEJQ7Ayptw=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "A tool to identify anything";

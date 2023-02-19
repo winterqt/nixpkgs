@@ -23,7 +23,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-21yfsCicn2bjSNEMMWDG8wvnw10uT3M1L3cXCUhc24c=";
   };
 
-  cargoSha256 = "sha256-F/mqdIjF5QOq5Plnq0DyeFP1+b7dCBcoU9iFxzcaZws=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # needed for internal protobuf c wrapper library
   PROTOC = "${protobuf}/bin/protoc";

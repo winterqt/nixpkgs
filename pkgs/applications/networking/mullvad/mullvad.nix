@@ -25,7 +25,12 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-LiaELeEBIn/GZibKf25W3DHe+IkpaTY8UC7ca/7lp8k=";
   };
 
-  cargoHash = "sha256-KpBhdZce8Ug3ws7f1qg+5LtOMQw2Mf/uJsBg/TZSYyk=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "udp-over-tcp-0.2.0" = "sha256-uKyjeviRViCMZi89KBbMNcTFAGjxSBR32AQ+p6C3e/A=";
+    };
+  };
 
   nativeBuildInputs = [
     pkg-config

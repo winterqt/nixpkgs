@@ -14,7 +14,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-DaydUuENqmN812BgQmpewRPhkq9lT6+g+VPuytLc25Y=";
   };
 
-  cargoSha256 = "sha256-kzc2Wd+Y3mNmOHxRj5R1LIbvXz5NyGcRnz2e0jdfdPg=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   cargoBuildFlags = ["--bin" pname];
 

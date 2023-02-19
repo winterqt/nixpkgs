@@ -19,7 +19,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-sS8emB+uhWuoq5ISuT8FgSSzX7/WDoOY8hHzPE/EX3o=";
   };
 
-  cargoSha256 = "sha256-XS6dw6BIoJdigEso/J1dUaAp7AIAda3HrKnCoBynRv8=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # buildAndTestSubdir = "cli";
 

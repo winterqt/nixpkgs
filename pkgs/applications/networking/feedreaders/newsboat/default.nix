@@ -12,7 +12,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-hiZN3wWknshP8MG4ThhbMLyhQkuFozzoETs3mYaMVro=";
   };
 
-  cargoHash = "sha256-Ap8i8hLqrUi6aSn4wKAdG3Z/5or+bF+epDaWUdWYt78";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # TODO: Check if that's still needed
   postPatch = lib.optionalString stdenv.isDarwin ''

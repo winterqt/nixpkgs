@@ -20,7 +20,7 @@ rustPlatform.buildRustPackage rec {
     })
   ];
 
-  cargoHash = "sha256-1gKxFznoGYGme0UicP73FQt8CnI9IeyHJxLgRcLffm0=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Language agnostic documentation generator";

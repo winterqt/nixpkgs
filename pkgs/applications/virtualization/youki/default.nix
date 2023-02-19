@@ -33,7 +33,7 @@ rustPlatform.buildRustPackage rec {
   cargoBuildFlags = [ "-p" "youki" ];
   cargoTestFlags = [ "-p" "youki" ];
 
-  cargoSha256 = "sha256-PT1kVo4gQFH9sIprEoAioNvDL/soMHcA2utEiQJPS/0=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   doCheck = false; # test failed
 

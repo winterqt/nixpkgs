@@ -21,7 +21,7 @@ rustPlatform.buildRustPackage rec {
       --replace '"/usr/share/doc/kernel-doc-*/Documentation/*",' '"${linux-doc}/share/doc/linux-doc/*",'
   '';
 
-  cargoHash = "sha256-baxXSjbS/5i9xnQGdPYPqgu0c2HGEAU7j7X8wtKSznA=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   buildInputs = [
     xorg.libxcb

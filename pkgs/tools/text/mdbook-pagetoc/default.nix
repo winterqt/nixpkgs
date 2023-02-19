@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-SRrlyUkEdC63NbdAv+J9kb5LTCL/GBwMhnUVdTE4nas=";
   };
 
-  cargoHash = "sha256-Gx6N8VFUnaOvQ290TLeeNj/pVDeK/nUWLjM/KwVAjNo=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Table of contents for mdbook (in sidebar)";

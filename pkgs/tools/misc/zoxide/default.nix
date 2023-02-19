@@ -28,7 +28,7 @@ rustPlatform.buildRustPackage rec {
       --replace '"fzf"' '"${fzf}/bin/fzf"'
   '';
 
-  cargoSha256 = "sha256-6SGzMEYQIGDabIlCUmHky34wGMrAkOrweF7VTzzrUPE=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   postInstall = ''
     installManPage man/man*/*

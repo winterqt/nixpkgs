@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-Uzkz4KEFOf4XdcfkjQm8OQRenUX9jDxTJaRivfIy0ak=";
   };
 
-  cargoHash = "sha256-NbZ9E3vUiDDKyEHZfgS8ErxXhQSTTsoPA/g+kGxCbXc=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Greps through binaries from various OSs and architectures, and colors them";

@@ -26,7 +26,7 @@ rustPlatform.buildRustPackage rec {
   # Cargo.lock is outdated
   cargoPatches = [ ./update-cargo-lock.diff ];
 
-  cargoSha256 = "sha256-ah8IjShmivS6IWL3ku/4/j+WNr/LdUnh1YJnPdaFdcM=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # FIXME: LTO is broken with rustc 1.61, see https://github.com/rust-lang/rust/issues/97255
   # remove this with rustc 1.61.1+

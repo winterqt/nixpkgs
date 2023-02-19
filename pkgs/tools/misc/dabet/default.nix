@@ -12,7 +12,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-B5z2RUkvztnGCKeVsjp/yzrI8m/6mjBB0DS1yhFZhM4=";
   };
 
-  cargoSha256 = "sha256-v1lc2quqxuNUbBQHaTtIDUPPTMyz8nj+TNCdSjrfrOA=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Print the duration between two times";
@@ -21,4 +21,3 @@ rustPlatform.buildRustPackage rec {
     maintainers = with maintainers; [ annaaurora ];
   };
 }
-

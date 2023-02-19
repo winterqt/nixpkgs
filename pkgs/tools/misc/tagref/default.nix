@@ -10,7 +10,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-PZ5ymYXn19PnvimofODh6su9zHdVoa3T7RCWPSO1Z6w=";
   };
 
-  cargoSha256 = "sha256-6siqfAWFoOomqcRvW+iku28FbyKCHiDzMVIUwWP8hJM=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Tagref helps you refer to other locations in your codebase.";

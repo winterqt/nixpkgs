@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-Z6qmtZfnpEZ1/XkmAijDo4nRfZOPW9hEIFTycdOYILk=";
   };
 
-  cargoSha256 = "sha256-EDdOnkOk5VIrzjJSTojdjmGAEDPMqW4PPE0JP+GUYnE=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "A CLI tool that allow you to create a temporary new Rust project using cargo with already installed dependencies";

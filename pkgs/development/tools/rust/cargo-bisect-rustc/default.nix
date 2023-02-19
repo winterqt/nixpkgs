@@ -53,7 +53,7 @@ rustPlatform.buildRustPackage rec {
     Security
   ];
 
-  cargoHash = "sha256-7tqo8cxAzoDfTU372uW1qUhm+qqyRhz8bQ7oMiRU528=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   checkFlags = [
     "--skip test_github"  # requires internet

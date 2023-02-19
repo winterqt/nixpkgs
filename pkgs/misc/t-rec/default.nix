@@ -26,7 +26,7 @@ rustPlatform.buildRustPackage rec {
     wrapProgram "$out/bin/t-rec" --prefix PATH : "${binPath}"
   '';
 
-  cargoHash = "sha256-3NExPlHNcoYVkpOzWCyd66chJpeDzQLRJUruSLAwGNw=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Blazingly fast terminal recorder that generates animated gif images for the web written in rust";

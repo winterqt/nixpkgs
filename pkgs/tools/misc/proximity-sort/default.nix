@@ -9,7 +9,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-So3cvL2F7wfcPVPEBspMLH4f5KSbVQeUKLJve/BXLA4=";
   };
 
-  cargoSha256 = "sha256-VGxU3CD5pj0Hrt6nUbNU7eNEpNrzHp/WaFHAKPUz8DA=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Simple command-line utility for sorting inputs by proximity to a path argument";

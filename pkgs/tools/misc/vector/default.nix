@@ -45,7 +45,31 @@ rustPlatform.buildRustPackage {
     sha256 = "sha256-+jap7cexevEky3H+Ct9LXXUwHR5tnbzdN+b13pv3f70=";
   };
 
-  cargoSha256 = "sha256-KehBEwoz5N0zQLDk+9vwFSrn1TrVwljFj+asr7q7hmw=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "azure_core-0.5.0" = "sha256-fojO7dhntpymMjV58TtYb7N4UN6rOp30D54x09RDXfQ=";
+      "azure_identity-0.6.0" = "sha256-fojO7dhntpymMjV58TtYb7N4UN6rOp30D54x09RDXfQ=";
+      "azure_storage-0.6.0" = "sha256-fojO7dhntpymMjV58TtYb7N4UN6rOp30D54x09RDXfQ=";
+      "azure_storage_blobs-0.6.0" = "sha256-fojO7dhntpymMjV58TtYb7N4UN6rOp30D54x09RDXfQ=";
+      "chrono-0.4.22" = "sha256-c5xHLte0+NpM+UUHEwxu2qdBFUBw62YN9vNkD12llwI=";
+      "h2-0.3.13" = "sha256-tjoMHE122TqWGP+6ra7cqvqsVLrZBQOCHYWqsnA7NV4=";
+      "heim-0.1.0-rc.1" = "sha256-ODKEQ1udt7FlxI5fvoFMG7C2zmM45eeEYDUEaLTsdYo=";
+      "heim-common-0.1.0-rc.1" = "sha256-ODKEQ1udt7FlxI5fvoFMG7C2zmM45eeEYDUEaLTsdYo=";
+      "heim-cpu-0.1.0-rc.1" = "sha256-ODKEQ1udt7FlxI5fvoFMG7C2zmM45eeEYDUEaLTsdYo=";
+      "heim-disk-0.1.0-rc.1" = "sha256-ODKEQ1udt7FlxI5fvoFMG7C2zmM45eeEYDUEaLTsdYo=";
+      "heim-host-0.1.0-rc.1" = "sha256-ODKEQ1udt7FlxI5fvoFMG7C2zmM45eeEYDUEaLTsdYo=";
+      "heim-memory-0.1.0-rc.1" = "sha256-ODKEQ1udt7FlxI5fvoFMG7C2zmM45eeEYDUEaLTsdYo=";
+      "heim-net-0.1.0-rc.1" = "sha256-ODKEQ1udt7FlxI5fvoFMG7C2zmM45eeEYDUEaLTsdYo=";
+      "heim-runtime-0.1.0-rc.1" = "sha256-ODKEQ1udt7FlxI5fvoFMG7C2zmM45eeEYDUEaLTsdYo=";
+      "leveldb-sys-2.0.9" = "sha256-p3HdqbVVJLaj56zDB9CEKRuDegmBHC9D19wIcrq4p8E=";
+      "tokio-util-0.7.4" = "sha256-rAzj44O+GOZhG+o6FVN5qCcG/NWxW8fUpScm+xsRjIs=";
+      "tracing-0.2.0" = "sha256-YAxeEofFA43PX2hafh3RY+C81a2v6n1fGzYz2FycC3M=";
+      "tracing-core-0.2.0" = "sha256-YAxeEofFA43PX2hafh3RY+C81a2v6n1fGzYz2FycC3M=";
+      "tracing-futures-0.3.0" = "sha256-YAxeEofFA43PX2hafh3RY+C81a2v6n1fGzYz2FycC3M=";
+      "tracing-tower-0.1.0" = "sha256-YAxeEofFA43PX2hafh3RY+C81a2v6n1fGzYz2FycC3M=";
+    };
+  };
   nativeBuildInputs = [ pkg-config cmake perl ];
   buildInputs = [ oniguruma openssl protobuf rdkafka zstd ]
     ++ lib.optionals stdenv.isDarwin [ Security libiconv coreutils CoreServices ];
@@ -116,4 +140,3 @@ rustPlatform.buildRustPackage {
     platforms = with platforms; all;
   };
 }
-

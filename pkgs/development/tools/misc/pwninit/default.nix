@@ -23,7 +23,7 @@ rustPlatform.buildRustPackage rec {
   nativeBuildInputs = [ pkg-config ];
   doCheck = false; # there are no tests to run
 
-  cargoSha256 = "sha256-LPypmFeF9NZOX1ogpIqc++Pun7pInKzpxYiGUvSUcso=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = {
     description = "Automate starting binary exploit challenges";

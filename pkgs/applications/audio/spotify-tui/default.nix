@@ -73,7 +73,7 @@ rustPlatform.buildRustPackage rec {
     ln -s ${rspotify} ./rspotify-${rspotify.version}
   '';
 
-  cargoHash = "sha256-aZJ6Q/rvqrv+wvQw2eKFPnSROhI5vXPvr5pu1hwtZKA=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = [ installShellFiles ] ++ lib.optionals stdenv.isLinux [ pkg-config python3 ];
   buildInputs = [ ]

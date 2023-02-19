@@ -9,7 +9,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-/Pt0eKS6Rfrh18nb1lR/T+T+b73rmX4jmGIjbXJtcMA=";
   };
 
-  cargoSha256 = "sha256-Vum7Ltq9h6BMXvIESO9jC2B775BZlCWmatazk1bavQs=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Generate Rust register maps (`struct`s) from SVD files";

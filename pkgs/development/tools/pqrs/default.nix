@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-fqxPQUcd8DG+UYJRWLDJ9RpRkCWutEXjc6J+w1qv8PQ=";
   };
 
-  cargoSha256 = "sha256-/nfVu8eiQ8JAAUplSyA4eCQqZPCSrcxFzdc2gV95a2w=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "CLI tool to inspect Parquet files";

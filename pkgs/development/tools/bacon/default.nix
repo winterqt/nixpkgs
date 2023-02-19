@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-k87EgsH7EdnqYBoXHpPu7hB/goEXuZsz8mNsrvM+Hgw=";
   };
 
-  cargoHash = "sha256-ujc3tH9I2WqwxmqBaUdE8lJQtj7XS56IVaxfZWhmvF8=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   buildInputs = lib.optional stdenv.isDarwin [
     CoreServices

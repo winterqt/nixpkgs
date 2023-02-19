@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-vh3U4JhjlqA8i6vlOF4dhhinhD/rMWLYRx5wx5bdrGw=";
   };
 
-  cargoHash = "sha256-lsRwzD+4p9ijTjMLvoFxFEkvUhioUab5oVe+EZJCEwc=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "A command-line hex viewer";

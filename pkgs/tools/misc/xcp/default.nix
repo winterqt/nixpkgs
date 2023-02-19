@@ -14,7 +14,7 @@ rustPlatform.buildRustPackage rec {
   # no such file or directory errors
   doCheck = false;
 
-  cargoHash = "sha256-3vz92fHjLUMWVBpq71hxqqU0WiHdLbOst9vr8zbo6/U=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "An extended cp(1)";

@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-ppBJx3Yax2w8/D9DQayS+jfqFP1sa9pdVGeAHExg+9Y=";
   };
 
-  cargoHash = "sha256-l/Ytlzyoo27geZZ7wFYHStqD6TvMuI4SC0+DYjTK57w=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "An SVG rendering library";

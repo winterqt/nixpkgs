@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-Y8ss/aw01zpgM6Z6fCGshP21kcdSOTVG/VqL8H3tlls=";
   };
 
-  cargoSha256 = "sha256-8o4gN6mqUU+o80IqlAYAD5qpZBSQ/FY5HoNbpwzTm0A=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Markdown shell pre-processor";

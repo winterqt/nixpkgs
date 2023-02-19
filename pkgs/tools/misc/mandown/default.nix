@@ -9,7 +9,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-8a4sImsjw+lzeVK4V74VpIKDcAhMR1bOmJYVWzfWEfc=";
   };
 
-  cargoHash = "sha256-Wf1+dxwgPZ4CHpas+3P6n6kKDIISbnfI01+XksjxQlQ=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Markdown to groff (man page) converter";

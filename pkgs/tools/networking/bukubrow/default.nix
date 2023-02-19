@@ -18,7 +18,7 @@ in rustPlatform.buildRustPackage rec {
     sha256 = "sha256-xz5Agsm+ATQXXgpPGN4EQ00i1t8qUlrviNHauVdCu4U=";
   };
 
-  cargoSha256 = "sha256-mH76ODPKlKDEK9ckThPnL5Ar7p1l1gNd7zXfesLZlBM=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   buildInputs = [ sqlite ];
 
@@ -45,4 +45,3 @@ in rustPlatform.buildRustPackage rec {
     maintainers = with maintainers; [ infinisil ];
   };
 }
-

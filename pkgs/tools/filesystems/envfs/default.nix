@@ -8,7 +8,7 @@ rustPlatform.buildRustPackage rec {
     rev = version;
     hash = "sha256-aF8V1LwPGifFWoVxM0ydOnTX1pDVJ6HXevTxADJ/rsw=";
   };
-  cargoHash = "sha256-kw56tbe5zvWY5bI//dUqR1Rlumz8kOG4HeXiyEyL0I0=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   passthru.tests = {
     envfs = nixosTests.envfs;

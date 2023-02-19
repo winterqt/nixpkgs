@@ -26,7 +26,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-2OMjqY1oTVKyEuCJrGGSQfgjQPSOQRx6LPhoFUuf/pw=";
   };
 
-  cargoHash = "sha256-EhnQvVXv08l4ONnuIudU0WBw5AptD7OcvPUNOdpRZj4=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = [
     gpgme # for gpgme-config

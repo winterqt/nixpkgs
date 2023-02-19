@@ -21,7 +21,7 @@ rustPlatform.buildRustPackage rec {
 
   sourceRoot = "source/crate2nix";
 
-  cargoSha256 = "sha256-PD7R1vcb3FKd4hfpViKyvfCExJ5H1Xo2HPYden5zpxQ=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = [ makeWrapper ];
 

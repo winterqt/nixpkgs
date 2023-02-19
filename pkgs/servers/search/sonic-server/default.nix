@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage {
     sha256 = "sha256-WebEluXijgJckZQOka2BDPYn7PqzPTsIcV2T380fxW8=";
   };
 
-  cargoSha256 = "sha256-ObhKGjaIma6fUVUT3xadpy/GPYlnm0nKmRVxFmoePyQ=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   doCheck = false;
 

@@ -13,7 +13,7 @@ rustPlatform.buildRustPackage rec {
 
   buildInputs = lib.optional stdenv.isDarwin libiconv;
 
-  cargoSha256 = "sha256-Sn7ZcNdmMDQJHn99iTJX9c3uVhaGpRvEgdoJFmIUgeU=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "A hackable, minimal, fast TUI file explorer";

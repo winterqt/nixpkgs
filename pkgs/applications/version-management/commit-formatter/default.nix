@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "EYzhb9jJ4MzHxIbaTb1MxeXUgoxTwcnq5JdxAv2uNcA=";
   };
 
-  cargoSha256 = "AeHQCoP1HOftlOt/Yala3AXocMlwwIXIO2i1AsFSvGQ=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "A CLI tool to help you write git commit";

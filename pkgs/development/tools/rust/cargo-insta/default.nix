@@ -12,7 +12,7 @@ rustPlatform.buildRustPackage rec {
   };
 
   sourceRoot = "source/cargo-insta";
-  cargoHash = "sha256-GC2ggTJJV3Aww3qPfsnuND0eII1l3OBoZfi5RtvhO8I=";
+  cargoLock.lockFile = ./Cargo.lock;
   buildInputs = lib.optionals stdenv.isDarwin [ libiconv ];
 
   meta = with lib; {

@@ -25,7 +25,7 @@ rustPlatform.buildRustPackage rec {
   buildInputs = [ openssl ] ++ lib.optionals stdenv.isDarwin [ Security SystemConfiguration ];
   nativeBuildInputs = [ pkg-config ];
 
-  cargoHash = "sha256-4RUeUwixb5omcHT4jJHJKF2lYZE/4014DnrR2j7sen0=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     homepage = "https://docs.sentry.io/cli/";

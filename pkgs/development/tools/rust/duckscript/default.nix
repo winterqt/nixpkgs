@@ -25,7 +25,7 @@ rustPlatform.buildRustPackage rec {
   buildInputs = [ openssl ]
     ++ lib.optionals stdenv.isDarwin [ Security SystemConfiguration libiconv ];
 
-  cargoHash = "sha256-kll2q5HhcpizBDbWipj30F8WEQnjG1fndxCHoXBbik8=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Simple, extendable and embeddable scripting language.";

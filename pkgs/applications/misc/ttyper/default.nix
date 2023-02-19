@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-yReDHe5UJfBnEIhOp/3nHQkhp6YQQGDWqihLYi9IxdM=";
   };
 
-  cargoSha256 = "sha256-5vhtF8GKg4Cw3F1GlhpWz2VMZfcMpCijlHTGmbKHjP8=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Terminal-based typing test";

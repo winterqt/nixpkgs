@@ -9,7 +9,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-Np1f/mSMIMZU3hE0Fur8bOHhOH3rZyroGiVAqfiIs7g=";
   };
 
-  cargoHash = "sha256-qoCOYk7hyjMx07l48IkxE6zsG58NkF72E3OvoZHz5d0=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Display an interactive ASCII globe in your terminal";

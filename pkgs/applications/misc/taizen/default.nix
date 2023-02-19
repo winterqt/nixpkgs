@@ -14,7 +14,7 @@ rustPlatform.buildRustPackage rec {
   buildInputs = [ ncurses openssl ] ++ lib.optional stdenv.isDarwin Security;
   nativeBuildInputs = [ pkg-config ];
 
-  cargoSha256 = "1yqy5v02a4qshgb7k8rnn408k3n6qx3jc8zziwvv7im61n9sjynf";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     homepage = "https://crates.io/crates/taizen";

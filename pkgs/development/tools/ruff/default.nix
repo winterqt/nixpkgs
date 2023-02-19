@@ -17,7 +17,17 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-oQBNVs7hoiXNqz5lYq5YNKHfpQ/c8LZAvNvtFqpTM2E=";
   };
 
-  cargoSha256 = "sha256-61kypAXWfUZLfTbSp+b0gCKwuWtxAYVtKIwfVOcJ2o8=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "libcst-0.1.0" = "sha256-66Td5jnLEEDHgYapsSmxfgIE43T7PSTYRznllIOw81U=";
+      "libcst_derive-0.1.0" = "sha256-66Td5jnLEEDHgYapsSmxfgIE43T7PSTYRznllIOw81U=";
+      "rustpython-ast-0.2.0" = "sha256-WmiRFT+wzAtS/4W3hClhGxMmT6q/A3B5U5np3SQWkHQ=";
+      "rustpython-common-0.2.0" = "sha256-WmiRFT+wzAtS/4W3hClhGxMmT6q/A3B5U5np3SQWkHQ=";
+      "rustpython-compiler-core-0.2.0" = "sha256-WmiRFT+wzAtS/4W3hClhGxMmT6q/A3B5U5np3SQWkHQ=";
+      "rustpython-parser-0.2.0" = "sha256-WmiRFT+wzAtS/4W3hClhGxMmT6q/A3B5U5np3SQWkHQ=";
+    };
+  };
 
   nativeBuildInputs = [
     installShellFiles

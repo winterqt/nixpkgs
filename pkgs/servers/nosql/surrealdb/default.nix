@@ -22,7 +22,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-zFqHwZUpwqvuqmS18bhlpAswD5EycB3pnZwSuN5Q2G4=";
   };
 
-  cargoSha256 = "sha256-vaAfOsbIdQXpx7v4onXY1J8ANKCccVRuWxdvX5+f2no=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   LIBCLANG_PATH = "${llvmPackages.libclang.lib}/lib";
 

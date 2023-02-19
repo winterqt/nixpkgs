@@ -9,7 +9,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-H8odIEGtAMP1SQMdlgvFbduoLEaze89MFarN8AxBkK4=";
   };
 
-  cargoSha256 = "sha256-pVHBFub5OTkL6e8ftI0nNisH+vJBOlcq4W0gwzz7vtA=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   buildInputs = lib.optionals stdenv.isDarwin (with darwin.apple_sdk_11_0.frameworks; [
     DiskArbitration

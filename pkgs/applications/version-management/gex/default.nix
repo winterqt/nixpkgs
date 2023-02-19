@@ -15,7 +15,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-oUcQKpZqqb8wZDpdFfpxLpwdfQlokJE5bsoPwxh+JMM=";
   };
 
-  cargoHash = "sha256-ZFrIlNysjlXI8n78N2Hkff6gAplipxSQXUWG8HJq8fs=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Git Explorer: cross-platform git workflow improvement tool inspired by Magit";

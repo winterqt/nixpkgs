@@ -25,7 +25,7 @@ rustPlatform.buildRustPackage rec {
     rev = "v${version}";
     sha256 = "sha256-Dg4ZX1CpjZuCXDu3GxbaRIwdhDuJ50j53b6XETfFGAU=";
   };
-  cargoSha256 = "sha256-6V9djLUmPEQDewKEN0ND7zyXSrKdakXZdYSRsyXWNuE=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   postPatch = ''
     # upstream uses lld on aarch64-darwin for faster builds

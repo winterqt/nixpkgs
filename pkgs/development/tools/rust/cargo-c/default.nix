@@ -21,7 +21,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-f/p+ZIvDe9JQ8GM82SEud7sRTlimNs/ADPevfdkhsfg=";
   };
 
-  cargoSha256 = "sha256-JrlEWgKbTqQG/JYFqBR53eB58fa29c/+vIdSNGoS5Y0=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = [ pkg-config (lib.getDev curl) ];
   buildInputs = [ openssl curl ] ++ lib.optionals stdenv.isDarwin [

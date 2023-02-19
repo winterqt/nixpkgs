@@ -45,7 +45,7 @@ rustPlatform.buildRustPackage rec {
     Security
   ];
 
-  cargoSha256 = "n7t8Ap9hdhrjmtKjfdyozf26J7yhu57pedm19CunLF4=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Install a rustc master toolchain usable from rustup";

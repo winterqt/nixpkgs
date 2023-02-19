@@ -22,7 +22,20 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-9WEP+/BI5fh3IhVsLSPrnkiZ3DmXwTFaPXyzBNs7cNM=";
   };
 
-  cargoSha256 = "sha256-iXMor2hI8Q/tpdSCaUjiEsvVfmWKXI6Az0J6aqMwE2E=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "ecolor-0.20.0" = "sha256-tnjFkaCWmCPGw3huQN9VOAeiH+zk3Zk9xYoRKmg2WQg=";
+      "eframe-0.20.0" = "sha256-tnjFkaCWmCPGw3huQN9VOAeiH+zk3Zk9xYoRKmg2WQg=";
+      "egui-0.20.0" = "sha256-tnjFkaCWmCPGw3huQN9VOAeiH+zk3Zk9xYoRKmg2WQg=";
+      "egui-winit-0.20.0" = "sha256-tnjFkaCWmCPGw3huQN9VOAeiH+zk3Zk9xYoRKmg2WQg=";
+      "egui_glow-0.20.0" = "sha256-tnjFkaCWmCPGw3huQN9VOAeiH+zk3Zk9xYoRKmg2WQg=";
+      "emath-0.20.0" = "sha256-tnjFkaCWmCPGw3huQN9VOAeiH+zk3Zk9xYoRKmg2WQg=";
+      "epaint-0.20.0" = "sha256-tnjFkaCWmCPGw3huQN9VOAeiH+zk3Zk9xYoRKmg2WQg=";
+      "notify-rust-4.6.0" = "sha256-jhCgisA9f6AI9e9JQUYRtEt47gQnDv5WsdRKFoKvHJs=";
+      "supergfxctl-5.0.2" = "sha256-zp92mWyWUEWUP4kEyHbiUyYTtp2kLv+gxkPzOu77fi8=";
+    };
+  };
 
   postPatch = ''
     files="

@@ -10,7 +10,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-C6EJ8awdTV9TecMeYdbmleK8171+hvphjXJrWNJSXxo=";
   };
 
-  cargoSha256 = "sha256-mB4n1IxhNXrAsCz/jv5jgqyO9OgISZnI5E/vFu80+FE=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Generate human readable random names";

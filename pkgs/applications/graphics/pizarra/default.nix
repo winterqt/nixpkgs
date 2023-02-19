@@ -24,7 +24,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-fWwAmzF3ppCvJZ0K4EDrmP8SVPVRayEQTtbhNscZIF0=";
   };
 
-  cargoSha256 = "sha256-pxRJXUeFGdVj6iCFZ4Y8b9z5hw83g8YywpKztTZ0g+4=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = [ wrapGAppsHook pkg-config gdk-pixbuf ];
 

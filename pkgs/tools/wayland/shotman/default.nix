@@ -18,7 +18,12 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-BWHQtaDnM6lBEMkD8Y7M2NrWD78rY3yL8dzsa6PBiR0=";
   };
 
-  cargoHash = "sha256-uckdpzCD3ItUVvpF2fHofcZFkQZzt8Xz/VWFiQ9Hkrs=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "smithay-client-toolkit-0.16.0" = "sha256-n+s+qH39tna0yN44D6GGlQGZHjsr9FBpp+NZItyqwaE=";
+    };
+  };
 
   nativeBuildInputs = [ pkg-config makeWrapper ];
 

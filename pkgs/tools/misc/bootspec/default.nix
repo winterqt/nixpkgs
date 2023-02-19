@@ -13,7 +13,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-GX6Tzs/ClTUV9OXLvPFw6uBhrpCWSMI+PfrViyFEIxs=";
   };
 
-  cargoHash = "sha256-N/hbfjsuvwCc0mxOpeVVcTxb5cA024lyLSEpVcrS7kA=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Implementation of RFC-0125's datatype and synthesis tooling";

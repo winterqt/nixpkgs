@@ -14,7 +14,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-IR0cDXQHnMDI71Vg50atS98YorqAQKc95EF1+m9cxFY=";
   };
 
-  cargoSha256 = "sha256-658mN3R3opjvqfnIDcbh11ZSOTDbpYnhCgGGx46Mrrc=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "A CLI tool to manage todo lists in todo.txt format";

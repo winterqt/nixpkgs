@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-fN/8woLkTFD0aGILwweHhpey3cGQw2NolvpOmdkEEGA=";
   };
 
-  cargoSha256 = "sha256-2zczu9MtsDDbfjbmLXCiPJrxNoNNBN0KAGeN+a53SRg=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Run Windows programs with Proton";

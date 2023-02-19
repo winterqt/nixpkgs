@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "0ph3rsrhcyi272bv5018pw185zn7fvp5fqj24yh9rjrz8x7iawib";
   };
 
-  cargoSha256 = "sha256-1ZFwX7NKIainer7o9dIMxwyycdGW8K9euLHad/tF95w=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = [ installShellFiles ];
 

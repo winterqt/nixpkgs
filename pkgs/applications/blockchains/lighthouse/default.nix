@@ -33,7 +33,24 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-4auiM5+kj/HjZKu2YP7JEnwDNxHuL39XCfmV/dc5jLE=";
   };
 
-  cargoHash = "sha256-ihfGwdxL7Ttw86dhaVBp5meb0caXjzgbbP27Io8zv/c=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "amcl-0.3.0" = "sha256-QoqDj3OZdf4ENPE9ACBC9A/STqCku6sZIt3AMLtpjC4=";
+      "beacon-api-client-0.1.0" = "sha256-HXRc8Pw3+4xSj5sDoqdfGR2NNtYC7kz8v6uel9rwJHI=";
+      "ethereum-consensus-0.1.1" = "sha256-LqkLW6L8SH5H2Ua6GQWhGt9W4JoGSYEpqhDLdVifceU=";
+      "fixed-hash-0.7.0" = "sha256-osShTWl9y9dsXlGWLkL10OqFsf3Ug9+cf08HW7oC7/A=";
+      "libmdbx-0.1.4" = "sha256-NMsR/Wl1JIj+YFPyeMMkrJFfoS07iEAKEQawO89a+/Q=";
+      "lmdb-rkv-0.14.0" = "sha256-RkeSnaJwoGnO1IXRM0pMdO6fYFoDWDPQF/4IK7/SFB0=";
+      "lmdb-rkv-sys-0.11.2" = "sha256-RkeSnaJwoGnO1IXRM0pMdO6fYFoDWDPQF/4IK7/SFB0=";
+      "mdbx-sys-0.11.6-4" = "sha256-NMsR/Wl1JIj+YFPyeMMkrJFfoS07iEAKEQawO89a+/Q=";
+      "mev-build-rs-0.2.1" = "sha256-rXwZVaQmAb5Oxn5NFELaxqfovGUGWfzDm5oL46Mt3Cg=";
+      "milagro_bls-1.4.2" = "sha256-QoqDj3OZdf4ENPE9ACBC9A/STqCku6sZIt3AMLtpjC4=";
+      "ssz-rs-0.8.0" = "sha256-CgX34M1fL6Xn/ZtgHPfNeiv9xsf44jM5jZOmV+0EnE0=";
+      "ssz-rs-derive-0.8.0" = "sha256-CgX34M1fL6Xn/ZtgHPfNeiv9xsf44jM5jZOmV+0EnE0=";
+      "warp-0.3.2" = "sha256-m9lkEgeSs0yEc+6N6DG7IfQY/evkUMoNyst2hMUR//c=";
+    };
+  };
 
   buildFeatures = [ "modern" "gnosis" ];
 

@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-Ewki2Ux233WEW7x3jgpdeMH6xoMYJQ9X3vP8CqY+0hc=";
   };
 
-  cargoHash = "sha256-IpTWyp0o6OKS8h0U8ybC2Io3Tbs592UBzAWmd8zEm2I=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   cargoBuildFlags = [ "-p" "cargo-hakari" ];
   cargoTestFlags = [ "-p" "cargo-hakari" ];

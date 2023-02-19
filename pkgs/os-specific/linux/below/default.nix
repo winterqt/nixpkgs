@@ -20,7 +20,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-d5a/M2XEw2E2iydopzedqZ/XfQU7KQyTC5NrPTeeNLg=";
   };
 
-  cargoSha256 = "sha256-EoRCmEe9SAySZCm+QhaR4ngik4Arnm4SZjgDM5fSRmk=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   # bpf code compilation
   hardeningDisable = [ "stackprotector" ];

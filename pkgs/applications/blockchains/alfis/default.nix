@@ -32,7 +32,7 @@ rustPlatform.buildRustPackage rec {
     })
   ];
 
-  cargoSha256 = "sha256-B4xI++U6RCljXCyaOmNj/SwA6I16zoiZsgk2VTiKfkg=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   checkFlags = [
     # these want internet access, disable them

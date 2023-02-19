@@ -43,7 +43,21 @@ rustPlatform.buildRustPackage rec {
     ./fix-for-rust-1.65.diff
   ];
 
-  cargoSha256 = "sha256-1OMWEk+DerltF7kwdo4d04rbgIFLHBRq3vZaL7jtrdE=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "confy-0.4.0" = "sha256-e91cvEixhpPzIthAxzTa3fDY6eCsHUy/eZQAqs7QTDo=";
+      "libappindicator-0.6.1" = "sha256-JGnnZrcwbh8WJ6+/4bYhfD3HvgF2C7XaaGb6TaMRWdw=";
+      "libappindicator-sys-0.6.1" = "sha256-JGnnZrcwbh8WJ6+/4bYhfD3HvgF2C7XaaGb6TaMRWdw=";
+      "magnum-opus-0.4.0" = "sha256-GoCuStsQW/M6PEfdtbJ69ePNAL8bQ9HIJVopv+k93nY=";
+      "parity-tokio-ipc-0.7.3" = "sha256-Ji/q7RQDznFs+m4AHH1IEL1TMqqCtH4Z5DY6sjcu/T0=";
+      "rdev-0.5.0" = "sha256-O+jbA8GS9KVZR/i840+mfQ9LZ3Qtf/XBbV/Mkqn5C/g=";
+      "rust-pulsectl-0.2.12" = "sha256-8jXTspWvjONFcvw9/Z8C43g4BuGZ3rsG32tvLMQbtbM=";
+      "sciter-rs-0.5.57" = "sha256-ZZnZDhMjK0LjgmK0da1yvB0uoKueLhhhQtzmjoN+1R0=";
+      "systray-0.4.1" = "sha256-p1PMr/8oS6zHx4+Ng4zCqt0xZ57cq3wAu6/agyWq5Jw=";
+      "tokio-socks-0.5.1" = "sha256-inmAJk0fAlsVNIwfD/M+htwIdQHwGSTRrEy6N/mspMI=";
+    };
+  };
 
   LIBCLANG_PATH="${llvmPackages.libclang.lib}/lib";
 

@@ -17,7 +17,12 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-t/3++EeP7a8t2H0IEPLogBri7+6u+2+v+lNb4/Ty1/w=";
   };
 
-  cargoHash = "sha256-Pv7SK64+eoK1VUxDh1oH0g1veWoIvBhiZE9JI/alXJ4=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "rustpython-doc-0.1.0" = "sha256-aVc2WMxJ1Z1+iMuigdn8+Yp4DnpGenoqvDoJMAiHIgU=";
+    };
+  };
 
   # freeze the stdlib into the rustpython binary
   cargoBuildFlags = [ "--features=freeze-stdlib" ];

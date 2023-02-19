@@ -33,7 +33,7 @@ rustPlatform.buildRustPackage rec {
     })
   ];
 
-  cargoSha256 = "sha256-AbA8L7rkyZfKW0vvjyrcW5eU6jGD+zAqIcEUOJmeqJs=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   doCheck = false;
   cargoBuildFlags = [ "-p sqlx-cli" ];

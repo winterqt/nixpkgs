@@ -25,7 +25,7 @@ rustPlatform.buildRustPackage rec {
   buildInputs = [ openssl ]
     ++ lib.optional stdenv.isDarwin Security;
 
-  cargoSha256 = "sha256-qpmzg1pmR4zv6wmwPB2ysgGU4v/QebpwKFpjbszEb/Q=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeCheckInputs = [ ansi2html ];
   # Skip tests that use the network and that include files.

@@ -17,7 +17,7 @@ rustPlatform.buildRustPackage rec {
     udev
   ];
 
-  cargoSha256 = "sha256-+3Rqlzkrw9XfM3PelGNbnRGaWQLbzVJ7iJgvGgVt5FE=";
+  cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
     description = "Convert ELF files to UF2 for USB Flashing Bootloaders";
