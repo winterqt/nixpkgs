@@ -1,0 +1,34 @@
+{
+  lib,
+  installShellFiles,
+  runCommandLocal,
+}:
+
+runCommandLocal "install-shell-files--install-completion-exec-snippet-emulator"
+  {
+    nativeBuildInputs = [ installShellFiles ];
+    meta.platforms = lib.platforms.all;
+  }
+  (
+    ''
+      echo foo > foo
+      echo bar > bar
+      echo baz > baz
+      echo qux > qux.zsh
+      echo quux > quux
+    ''
+    + (installShellFiles.mkInstallCompletionSnippet {
+      __execDirectly = true;
+      buildPackagesSelf = installShellFiles.tests.install-completion;
+      installer = _: ''
+        installShellCompletion --bash foo bar --zsh baz qux.zsh --fish quux
+      '';
+    })
+    + ''
+      cmp foo $out/share/bash-completion/completions/foo
+      cmp bar $out/share/bash-completion/completions/bar
+      cmp baz $out/share/zsh/site-functions/_baz
+      cmp qux.zsh $out/share/zsh/site-functions/_qux
+      cmp quux $out/share/fish/vendor_completions.d/quux
+    ''
+  )
