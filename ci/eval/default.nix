@@ -39,10 +39,11 @@ let
     {
       # To match hydra.nixos.org
       evalSystem ? "x86_64-linux",
+      nixpkgsPath ? nixpkgs,
     }:
     runCommand "attrpaths-superset.json"
       {
-        src = nixpkgs;
+        src = nixpkgsPath;
         nativeBuildInputs = [
           nix
           time
@@ -72,10 +73,12 @@ let
       # The path to the `paths.json` file from `attrpathsSuperset`
       attrpathFile ? "${attrpathsSuperset { evalSystem = attrpathEvalSystem; }}/paths.json",
       attrpathEvalSystem ? "x86_64-linux",
+      nixpkgsPath ? nixpkgs,
       # The number of attributes per chunk, see ./README.md for more info.
       chunkSize,
       checkMeta ? true,
       includeBroken ? true,
+      includeUnsupported ? false,
       # Whether to just evaluate a single chunk for quick testing
       quickTest ? false,
     }:
@@ -93,7 +96,7 @@ let
         set +e
         command time -o "$outputDir/timestats/$myChunk" \
           -f "Chunk $myChunk on $system done [%MKB max resident, %Es elapsed] %C" \
-          nix-env -f "${nixpkgs}/pkgs/top-level/release-attrpaths-parallel.nix" \
+          nix-env -f "${nixpkgsPath}/pkgs/top-level/release-attrpaths-parallel.nix" \
           --eval-system "$system" \
           --option restrict-eval true \
           --option allow-import-from-derivation false \
@@ -106,7 +109,8 @@ let
           --arg systems "[ \"$system\" ]" \
           --arg checkMeta ${lib.boolToString checkMeta} \
           --arg includeBroken ${lib.boolToString includeBroken} \
-          -I ${nixpkgs} \
+          --arg includeUnsupported ${lib.boolToString includeUnsupported} \
+          -I ${nixpkgsPath} \
           -I ${attrpathFile} \
           > "$outputDir/result/$myChunk" \
           2> "$outputDir/stderr/$myChunk"
@@ -278,6 +282,17 @@ let
       ;
   };
 
+  releaseChecks = import ./release-checks.nix {
+    inherit
+      lib
+      runCommand
+      attrpathsSuperset
+      nixpkgs
+      singleSystem
+      linkFarm
+      ;
+  };
+
   full =
     {
       # Whether to evaluate on a specific set of systems, by default all are evaluated
@@ -307,7 +322,8 @@ in
     singleSystem
     combine
     compare
-    # The above three are used by separate VMs in a GitHub workflow,
+    releaseChecks
+    # The above five are used by separate VMs in a GitHub workflow,
     # while the below is intended for testing on a single local machine
     full
     ;
