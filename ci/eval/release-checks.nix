@@ -110,3 +110,6 @@ in
   }) checks
 ))
 // checks
+// {
+  inherit eval;
+}

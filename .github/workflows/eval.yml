@@ -53,7 +53,7 @@ jobs:
         env:
           MATRIX_SYSTEM: ${{ matrix.system }}
         run: |
-          nix-build nixpkgs/ci -A eval.singleSystem \
+          nix-build nixpkgs/ci -A eval.releaseChecks.eval \
             --argstr evalSystem "$MATRIX_SYSTEM" \
             --arg chunkSize 10000
           # If it uses too much memory, slightly decrease chunkSize
