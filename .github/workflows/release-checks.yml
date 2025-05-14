@@ -15,6 +15,7 @@ on:
       - staging-*
       - haskell-updates
       - python-updates
+      - push-myqponlxmlwz-testing
 
 permissions: {}
 

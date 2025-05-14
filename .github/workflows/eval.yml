@@ -15,6 +15,7 @@ on:
       - staging-*
       - haskell-updates
       - python-updates
+      - push-myqponlxmlwz-testing
 
 permissions: {}
 
@@ -93,6 +94,7 @@ jobs:
 
       - name: Combine all output paths and eval stats
         run: |
+          set -x
           mkdir intermediate
           for nar in intermediate-nars/*/*; do
             evalPath=$(gzip -cd "$nar" | nix-store --import)
