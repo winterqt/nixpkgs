@@ -299,15 +299,30 @@ let
       evalSystems ? if quickTest then [ "x86_64-linux" ] else supportedSystems,
       # The number of attributes per chunk, see ./README.md for more info.
       chunkSize,
+      # Whether to evaluate with complete parity to hydra.nixos.org, see ./README.md for more info.
+      hydraEmulation ? false,
       quickTest ? false,
     }:
     let
+      evalFor =
+        evalSystem:
+        if hydraEmulation then
+          singleSystem {
+            inherit evalSystem chunkSize quickTest;
+
+            # See release-checks.nix for more info on these flags,
+            # we're just inlining it here so we can use the x86_64-linux
+            # attrpaths.
+            includeBroken = false;
+            includeUnsupported = true;
+          }
+        else
+          (releaseChecks { inherit evalSystem chunkSize quickTest; }).eval;
+
       results = linkFarm "results" (
         map (evalSystem: {
           name = evalSystem;
-          path = singleSystem {
-            inherit quickTest evalSystem chunkSize;
-          };
+          path = evalFor evalSystem;
         }) evalSystems
       );
     in

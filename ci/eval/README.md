@@ -8,14 +8,19 @@ nix-build ci -A eval.full \
   --max-jobs 4 \
   --cores 2 \
   --arg chunkSize 10000 \
-  --arg evalSystems '["x86_64-linux" "aarch64-darwin"]'
+  --arg evalSystems '["x86_64-linux" "aarch64-darwin"]' \
+  --arg hydraEmulation true
 ```
 
 - `--max-jobs`: The maximum number of derivations to run at the same time. Only each [supported system](../supportedSystems.json) gets a separate derivation, so it doesn't make sense to set this higher than that number.
 - `--cores`: The number of cores to use for each job. Recommended to set this to the amount of cores on your system divided by `--max-jobs`.
 - `chunkSize`: The number of attributes that are evaluated simultaneously on a single core. Lowering this decreases memory usage at the cost of increased evaluation time. If this is too high, there won't be enough chunks to process them in parallel, and will also increase evaluation time.
 - `evalSystems`: The set of systems for which `nixpkgs` should be evaluated. Defaults to the four official platforms (`x86_64-linux`, `aarch64-linux`, `x86_64-darwin` and `aarch64-darwin`).
+- `hydraEmulation`: If `true`, the eval will behave as if it is on Hydra. If `false` (the default), the eval will inherit the same evaluation properties as the release checks run in CI. In order to be 100% sure that a change doesn't break something, you'll need to eval twice for both `hydraEmulation` values (though most of the time, the default mode will suffice).
 
 A good default is to set `chunkSize` to 10000, which leads to about 3.6GB max memory usage per core, so suitable for fully utilising machines with 4 cores and 16GB memory, 8 cores and 32GB memory or 16 cores and 64GB memory.
 
 Note that 16GB memory is the recommended minimum, while with less than 8GB memory evaluation time suffers greatly.
+
+> [!NOTE]
+> When this document refers to "Hydra," it is specifically referring to https://hydra.nixos.org, which evaluates attrpaths on `x86_64-linux`. Thus, `hydraEmulation` implies evaluating attrpaths on `x86_64-linux`.

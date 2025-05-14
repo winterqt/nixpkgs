@@ -10,6 +10,7 @@
 {
   evalSystem,
   chunkSize,
+  quickTest ? false,
 }:
 
 let
@@ -42,7 +43,7 @@ let
   # use to us? Throughout my testing I couldn't find
   # an issue that the outpath eval alone didn't catch.
   evalOptions = {
-    inherit evalSystem chunkSize;
+    inherit evalSystem chunkSize quickTest;
     attrpathFile = "${attrpaths}/paths.json";
 
     # Don't try to eval broken or unfree packages.
