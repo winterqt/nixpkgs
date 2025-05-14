@@ -111,5 +111,5 @@ in
 ))
 // checks
 // {
-  inherit eval;
+  inherit eval eval';
 }
