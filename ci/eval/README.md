@@ -17,6 +17,7 @@ nix-build ci -A eval.full \
 - `chunkSize`: The number of attributes that are evaluated simultaneously on a single core. Lowering this decreases memory usage at the cost of increased evaluation time. If this is too high, there won't be enough chunks to process them in parallel, and will also increase evaluation time.
 - `evalSystems`: The set of systems for which `nixpkgs` should be evaluated. Defaults to the four official platforms (`x86_64-linux`, `aarch64-linux`, `x86_64-darwin` and `aarch64-darwin`).
 - `hydraEmulation`: If `true`, the eval will behave as if it is on Hydra. If `false` (the default), the eval will inherit the same evaluation properties as the release checks run in CI. In order to be 100% sure that a change doesn't break something, you'll need to eval twice for both `hydraEmulation` values (though most of the time, the default mode will suffice).
+  - If you wish to perform evals in both the Hydra and non-Hydra contexts, you can do so with `eval.fullCoverage`, which takes the same arguments as `eval.full` (except `hydraEmulation`).
 
 A good default is to set `chunkSize` to 10000, which leads to about 3.6GB max memory usage per core, so suitable for fully utilising machines with 4 cores and 16GB memory, 8 cores and 32GB memory or 16 cores and 64GB memory.
 

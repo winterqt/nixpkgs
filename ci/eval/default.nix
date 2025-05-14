@@ -330,6 +330,42 @@ let
       resultsDir = results;
     };
 
+  completeCoverage =
+    {
+      evalSystems ? supportedSystems,
+      chunkSize,
+    }:
+    let
+      commonArgs = { inherit evalSystems chunkSize; };
+
+      relChecksEval = full commonArgs;
+      hydraEval = full (commonArgs // { hydraEmulation = true; });
+
+      touchedFiles = builtins.toFile "touched-files.json" ''
+        []
+      '';
+
+      comparison = compare {
+        beforeResultDir = relChecksEval;
+        afterResultDir = hydraEval;
+        touchedFilesJson = touchedFiles;
+      };
+    in
+    linkFarm "complete-coverage-results" [
+      {
+        name = "release-checks-eval";
+        path = relChecksEval;
+      }
+      {
+        name = "hydra-emulation-eval";
+        path = hydraEval;
+      }
+      {
+        name = "comparison";
+        path = comparison;
+      }
+    ];
+
 in
 {
   inherit
@@ -339,7 +375,8 @@ in
     compare
     releaseChecks
     # The above five are used by separate VMs in a GitHub workflow,
-    # while the below is intended for testing on a single local machine
+    # while the below are intended for testing on a single local machine
     full
+    completeCoverage
     ;
 }
