@@ -93,7 +93,10 @@ let
     '';
 
     evalPurity = runCommand "eval-purity-check" { } ''
-      if ! diff -u ${eval}/paths ${eval'}/paths; then
+      zcat ${eval}/paths > eval1
+      zcat ${eval'}/paths > eval2
+
+      if ! diff -u eval1 eval2; then
         echo
         echo "Error: Nixpkgs evaluation depends on Nixpkgs path"
         exit 1

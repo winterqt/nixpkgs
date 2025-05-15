@@ -196,7 +196,10 @@ let
 
         # Make sure the glob doesn't break when there's no files
         shopt -s nullglob
-        cat "$chunkOutputDir"/result/* > $out/paths
+
+        # NOTE: This is a hack, as we don't want the eval Nix
+        # to end up in the closure. Sorry.
+        cat "$chunkOutputDir"/result/* | gzip -n -9 > $out/paths
         cat "$chunkOutputDir"/stats/* > $out/stats.jsonstream
       '';
 
@@ -215,7 +218,7 @@ let
         mkdir -p $out
 
         # Transform output paths to JSON
-        cat ${resultsDir}/*/paths |
+        zcat ${resultsDir}/*/paths |
           jq --sort-keys --raw-input --slurp '
             split("\n") |
             map(select(. != "") | split(" ") | map(select(. != ""))) |
@@ -229,7 +232,7 @@ let
                     { key: .[0], value: .[1] }
                   end) | from_entries}
             ) | from_entries
-          ' > $out/outpaths.json
+          ' | gzip -n -9 > $out/outpaths.json
 
         # Computes min, mean, error, etc. for a list of values and outputs a JSON from that
         statistics() {

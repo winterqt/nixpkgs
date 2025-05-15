@@ -76,10 +76,14 @@ let
   getAttrs =
     dir:
     let
-      raw = builtins.readFile "${dir}/outpaths.json";
+      # Sorry.
+      raw = runCommand "ungzipped-attrs.json" { } ''
+        zcat ${dir}/outpaths.json > $out
+      '';
+
       # The file contains Nix paths; we need to ignore them for evaluation purposes,
       # else there will be a "is not allowed to refer to a store path" error.
-      data = builtins.unsafeDiscardStringContext raw;
+      data = builtins.unsafeDiscardStringContext (builtins.readFile raw);
     in
     builtins.fromJSON data;
   beforeAttrs = getAttrs beforeResultDir;
