@@ -176,6 +176,8 @@ in
 
         inherit (config.virtualisation) diskSize;
 
+        copyChannel = false;
+
         postVM = ''
            mkdir -p $out/nix-support
            echo "file ${cfg.format} $diskImage" >> $out/nix-support/hydra-build-products
