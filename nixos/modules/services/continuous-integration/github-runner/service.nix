@@ -17,6 +17,14 @@
           assertion = cfg.group == null || cfg.user != null;
           message = ''`services.github-runners.${name}`: Setting `group` while leaving `user` unset runs the service as `root`. If this is really what you want, set `user = "root"` explicitly'';
         }
+        {
+          assertion = cfg.url == null || cfg.urlFile == null;
+          message = "`services.github-runners.${name}`: `url` and `urlFile` are mutually exclusive";
+        }
+        {
+          assertion = cfg.url != null || cfg.urlFile != null;
+          message = "`services.github-runners.${name}`: One of `url` or `urlFile` must be set.";
+        }
       ]
     )
   );
@@ -37,8 +45,9 @@
         stateDir = "%S/${systemdDir}";
         # %L: Log directory root (usually /var/log); see systemd.unit(5)
         logsDir = "%L/${systemdDir}";
-        # Name of file stored in service state directory
+        # Names of files stored in service state directory
         currentConfigTokenFilename = ".current-token";
+        currentConfigUrlFilename = ".current-url";
 
         workDir = if cfg.workDir == null then runtimeDir else cfg.workDir;
       in
@@ -110,12 +119,17 @@
                   "runnerGroup"
                   "tokenFile"
                   "url"
+                  "urlFile"
                   "workDir"
                 ] cfg;
+                effectiveUrlFile =
+                  if cfg.urlFile != null then cfg.urlFile else builtins.toFile "${svcName}-url" cfg.url;
                 newConfigPath = builtins.toFile "${svcName}-config.json" (builtins.toJSON runnerRegistrationConfig);
                 currentConfigPath = "$STATE_DIRECTORY/.nixos-current-config.json";
                 newConfigTokenPath = "$STATE_DIRECTORY/.new-token";
                 currentConfigTokenPath = "$STATE_DIRECTORY/${currentConfigTokenFilename}";
+                newConfigUrlPath = "$STATE_DIRECTORY/.new-url";
+                currentConfigUrlPath = "$STATE_DIRECTORY/${currentConfigUrlFilename}";
 
                 runnerCredFiles = [
                   ".credentials"
@@ -129,9 +143,16 @@
                     # Also copy current file to allow for a diff on the next start
                     install --mode=600 ${lib.escapeShellArg cfg.tokenFile} "${currentConfigTokenPath}"
                   }
+                  copy_urls() {
+                    # Copy the configured URL file to the state dir and allow the service user to read the file
+                    install --mode=666 ${lib.escapeShellArg effectiveUrlFile} "${newConfigUrlPath}"
+                    # Also copy current file to allow for a diff on the next start
+                    install --mode=600 ${lib.escapeShellArg effectiveUrlFile} "${currentConfigUrlPath}"
+                  }
                   clean_state() {
                     find "$STATE_DIRECTORY/" -mindepth 1 -delete
                     copy_tokens
+                    copy_urls
                   }
                   diff_config() {
                     changed=0
@@ -142,6 +163,10 @@
                     # Also check the content of the token file
                     [[ -f "${currentConfigTokenPath}" ]] \
                       && ${pkgs.diffutils}/bin/diff -q "${currentConfigTokenPath}" ${lib.escapeShellArg cfg.tokenFile} >/dev/null 2>&1 \
+                      || changed=1
+                    # And the URL file
+                    [[ -f "${currentConfigUrlPath}" ]] \
+                      && ${pkgs.diffutils}/bin/diff -q "${currentConfigUrlPath}" ${lib.escapeShellArg effectiveUrlFile} >/dev/null 2>&1 \
                       || changed=1
                     # If the config has changed, remove old state and copy tokens
                     if [[ "$changed" -eq 1 ]]; then
@@ -160,6 +185,7 @@
                   else
                     # The state directory is entirely empty which indicates a first start
                     copy_tokens
+                    copy_urls
                   fi
                   # Always clean workDir
                   find -H "$WORK_DIRECTORY" -mindepth 1 -delete
@@ -174,7 +200,6 @@
                           --unattended
                           --disableupdate
                           --work "$WORK_DIRECTORY"
-                          --url ${lib.escapeShellArg cfg.url}
                           --labels ${lib.escapeShellArg (lib.concatStringsSep "," cfg.extraLabels)}
                           ${lib.optionalString (cfg.name != null) "--name ${lib.escapeShellArg cfg.name}"}
                           ${lib.optionalString cfg.replace "--replace"}
@@ -184,6 +209,8 @@
                           ${lib.optionalString cfg.ephemeral "--ephemeral"}
                           ${lib.optionalString cfg.noDefaultLabels "--no-default-labels"}
                         )
+                        url=$(<"${newConfigUrlPath}")
+                        args+=(--url "$url")
                         token=$(<"${newConfigTokenPath}")
                         case ${cfg.tokenType} in
                         access)

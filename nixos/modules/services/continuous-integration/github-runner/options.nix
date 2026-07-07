@@ -42,9 +42,10 @@
             };
 
             url = lib.mkOption {
-              type = lib.types.str;
+              default = null;
+              type = lib.types.nullOr lib.types.str;
               description = ''
-                Repository to add the runner to.
+                Repository to add the runner to. Mutually exclusive with `urlFile`.
 
                 Changing this option triggers a new runner registration.
 
@@ -57,6 +58,25 @@
                 in the configure script.
               '';
               example = "https://github.com/nixos/nixpkgs";
+            };
+
+            urlFile = lib.mkOption {
+              default = null;
+              type = lib.types.nullOr lib.types.path;
+              description = ''
+                Repository to add the runner to. Mutually exclusive with `url`.
+
+                Changing this option or the `urlFile`s content triggers a new runner registration.
+
+                IMPORTANT: If your token is org-wide (not per repository), you need to
+                provide a github org link, not a single repository, so do it like this
+                `https://github.com/nixos`, not like this
+                `https://github.com/nixos/nixpkgs`.
+                Otherwise, you are going to get a `404 NotFound`
+                from `POST https://api.github.com/actions/runner-registration`
+                in the configure script.
+              '';
+              example = "/run/secrets/github-runner/nixos.url";
             };
 
             tokenFile = lib.mkOption {
